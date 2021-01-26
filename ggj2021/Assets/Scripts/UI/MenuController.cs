@@ -2,6 +2,7 @@
  * Created by Hugo Uchoas Borges <hugouchoas@outlook.com>
  */
 
+using sound;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -34,6 +35,7 @@ namespace ui
         public void PlayGame()
         {
             LoadScene("GameScene");
+            GameDebug.Log("play".Localised());
         }
 
         public void ExitGame()

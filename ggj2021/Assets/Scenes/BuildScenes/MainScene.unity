@@ -150,7 +150,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7803847
 MonoBehaviour:
@@ -442,7 +442,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &654338034
 GameObject:
@@ -815,7 +815,6 @@ GameObject:
   m_Component:
   - component: {fileID: 811284844}
   - component: {fileID: 811284843}
-  - component: {fileID: 811284842}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -823,14 +822,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &811284842
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 811284841}
-  m_Enabled: 1
 --- !u!20 &811284843
 Camera:
   m_ObjectHideFlags: 0
@@ -1351,6 +1342,72 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 28}
   m_Pivot: {x: 0.5, y: 1}
+--- !u!1 &1252231410
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1252231413}
+  - component: {fileID: 1252231412}
+  - component: {fileID: 1252231411}
+  m_Layer: 0
+  m_Name: SoundController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1252231411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1252231410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 951f75926823c834e87741d6ee075441, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioClipEntries:
+  - {fileID: 8300000, guid: 80370e7a4c4872e45b40e3f8131134a9, type: 3}
+  - {fileID: 8300000, guid: 84e84939d713343499cd5860f947493f, type: 3}
+  - {fileID: 8300000, guid: 903109c15b1c0bd499e0177bebfbb339, type: 3}
+  - {fileID: 8300000, guid: 2f6a21d4564ef414691e488194db1d79, type: 3}
+  - {fileID: 8300000, guid: b119cdfb80b5ac745a8336f90ca4c0fd, type: 3}
+  - {fileID: 8300000, guid: 949abd4f76b963349b4fbc1711eea901, type: 3}
+  - {fileID: 8300000, guid: a87de29f36b760a4f889884e4544c67b, type: 3}
+  - {fileID: 8300000, guid: efb839a24d367cd4c968c60dd6827d40, type: 3}
+  - {fileID: 8300000, guid: 1186a69013ea4654da57c222cfa3d28a, type: 3}
+  - {fileID: 8300000, guid: 1cdba65af8df6d64ba834f45b9d4f9a7, type: 3}
+  - {fileID: 8300000, guid: 80ff2ba5d761d8a4c9b958acb7a0a62c, type: 3}
+  - {fileID: 8300000, guid: 4afbe0fe3185db743bb1416fd5e4483b, type: 3}
+  - {fileID: 8300000, guid: acf801e51b76d044db5acbe52e191400, type: 3}
+--- !u!81 &1252231412
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1252231410}
+  m_Enabled: 1
+--- !u!4 &1252231413
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1252231410}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1271185540
 GameObject:
   m_ObjectHideFlags: 0
@@ -1443,7 +1500,7 @@ RectTransform:
   m_Children:
   - {fileID: 335007651}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1662,7 +1719,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1413578154
 GameObject:
