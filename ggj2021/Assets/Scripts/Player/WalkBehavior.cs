@@ -19,6 +19,23 @@ namespace player
         private float _horizontalInput;
         private float _verticalInput;
 
+
+        // ========================== Facing Left/Right ============================
+        private bool _isFacingRight;
+        private bool IsFacingRight
+        {
+            get => _isFacingRight;
+            set
+            {
+                _isFacingRight = value;
+                transform.localScale = new Vector3(
+                        Math.Abs(transform.localScale.x) * (_isFacingRight ? 1 : -1),
+                        transform.localScale.y,
+                        1
+                        );
+            }
+        }
+
         private void WalkInput()
         {
 
@@ -30,6 +47,8 @@ namespace player
                     transform.position.x + _horizontalInput * speed * Time.deltaTime,
                     transform.position.y
                     );
+
+                IsFacingRight = _horizontalInput > 0;
             }
         }
 

@@ -534,7 +534,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4133c6603d21ab4ba1fc73274afb00d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 4
   _horizontalInputKey: Horizontal
   _verticalInputKey: Vertical
 --- !u!1 &653467642
