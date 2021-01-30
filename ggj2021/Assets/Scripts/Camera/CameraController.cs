@@ -2,28 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraController : MonoBehaviour
-{
-    [SerializeField] private Transform follow;
-    [SerializeField] private float velocity;
-    private Vector3 initialOffset;
-    private float lastScaleX = 1;
+namespace camera {
 
-    void Start()
-    {
-        initialOffset = transform.position - follow.position;
-        lastScaleX = Mathf.Sign(transform.localScale.x);
-    }
+    public class CameraController : MonoBehaviour {
+        [SerializeField] private Transform follow;
+        [SerializeField] private float velocity;
+        private Vector3 initialOffset;
+        private float lastScaleX = 1;
 
-    void Update()
-    {
-        if (Mathf.Sign(follow.localScale.x) != lastScaleX) {
-            initialOffset.x *= -1f;
-            lastScaleX *= -1f;
+        void Start() {
+            initialOffset = transform.position - follow.position;
+            lastScaleX = Mathf.Sign(transform.localScale.x);
         }
 
-        var direction = (follow.position + initialOffset) - transform.position;
+        void Update() {
+            if (Mathf.Sign(follow.localScale.x) != lastScaleX) {
+                initialOffset.x *= -1f;
+                lastScaleX *= -1f;
+            }
 
-        transform.position += direction * velocity * Time.deltaTime;
+            var direction = (follow.position + initialOffset) - transform.position;
+
+            transform.position += direction * velocity * Time.deltaTime;
+        }
     }
 }

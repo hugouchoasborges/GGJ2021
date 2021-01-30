@@ -519,6 +519,7 @@ MonoBehaviour:
   _glideMultiplier: 0.3
   _fallMultiplier: 2.5
   _lowJumpMultiplier: 2
+  _maxJumps: 2
   _jumpInputKey: Jump
   _groundChecker: {fileID: 1149414476}
 --- !u!1 &653467642
@@ -618,7 +619,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   follow: {fileID: 620389856}
-  velocity: 5
+  velocity: 4
 --- !u!20 &811284843
 Camera:
   m_ObjectHideFlags: 0

@@ -18,6 +18,8 @@ namespace player
         }
 
         public Action<GameObject> triggerCallback = null;
+        public Action onGrounded;
+        public Action onUngrounded;
 
         private void Awake()
         {
@@ -36,14 +38,17 @@ namespace player
             {
                 _isGrounded = true;
                 //triggerCallback?.Invoke(other.gameObject);
+                onGrounded?.Invoke();
             }
 
         }
 
         private void OnTriggerExit2D(Collider2D other)
         {
-            if (other.gameObject.layer == _whatIsGroundNumber)
+            if (other.gameObject.layer == _whatIsGroundNumber) {
                 _isGrounded = false;
+                onUngrounded?.Invoke();
+            }
 
         }
 

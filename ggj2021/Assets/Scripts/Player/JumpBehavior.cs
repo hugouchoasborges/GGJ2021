@@ -19,6 +19,10 @@ namespace player
         [SerializeField]
         [Range(0f, 10)] private float _lowJumpMultiplier = 2f;
 
+        [Header("Multiple jumps")]
+        [SerializeField] int _maxJumps = 2;
+        int _jumpCount = 0;
+
         [Header("Input Keys (string)")]
         [SerializeField] private string _jumpInputKey = "Jump";
 
@@ -26,17 +30,25 @@ namespace player
         [SerializeField] private GroundChecker _groundChecker;
         private Rigidbody2D _rigidbody2D;
 
+
         private void Awake()
         {
             _rigidbody2D = GetComponent<Rigidbody2D>();
+
+            // Ground checker callbacks
+            _groundChecker.onGrounded = OnGrounded;
+            _groundChecker.onUngrounded = OnUngrounded;
         }
 
         private void JumpInput()
         {
-            if (_groundChecker.isGrounded && Input.GetButtonDown(_jumpInputKey))
+            if ((_groundChecker.isGrounded || _jumpCount < _maxJumps) && Input.GetButtonDown(_jumpInputKey))
             {
                 GameDebug.Log("JUMP", util.LogType.Player);
 
+                _jumpCount++;
+
+                _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, 0);
                 _rigidbody2D.AddForce(Vector2.up * _jumpImpulse, ForceMode2D.Impulse);
             }
         }
@@ -60,6 +72,14 @@ namespace player
         {
             JumpInput();
             BetterJumpModifier();
+        }
+
+        private void OnGrounded() {
+            _jumpCount = 0;
+        }
+
+        private void OnUngrounded() {
+            if (_jumpCount == 0) _jumpCount = 1;
         }
     }
 }
