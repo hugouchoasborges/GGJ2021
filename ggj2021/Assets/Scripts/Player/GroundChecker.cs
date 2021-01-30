@@ -9,6 +9,19 @@ namespace player
         [SerializeField] private LayerMask _whatIsGround;
         private int _whatIsGroundNumber;
 
+        // Fall/Wall check
+        public Transform[] fallPoints;
+        public bool isFallingBorder {
+            get {
+                int count = 0;
+                foreach (Transform p in fallPoints) {
+                    if (Physics2D.OverlapPoint(p.position, LayerMask.GetMask("Ground", "Wall")))
+                        count++;
+                }
+                return count == 1;
+            }
+        }
+
 
         private bool _isGrounded;
         public bool isGrounded

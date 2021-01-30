@@ -29,6 +29,7 @@ namespace player
         private bool _isWalking = false;
         public event Action onStartWalking;
         public event Action onStopWalking;
+        public event Action onAlmostFalling;
 
 
         // ========================== Facing Left/Right ============================
@@ -88,8 +89,14 @@ namespace player
 
                 _isWalking = false;
 
-                if(_groundChecker.isGrounded)
+                if (_groundChecker.isGrounded) {
                     onStopWalking?.Invoke();
+
+                    if (_groundChecker.isFallingBorder) {
+                        GameDebug.Log("Player is almost falling.", util.LogType.MovementEvents);
+                        onAlmostFalling?.Invoke();
+                    }
+                }
             }
         }
 

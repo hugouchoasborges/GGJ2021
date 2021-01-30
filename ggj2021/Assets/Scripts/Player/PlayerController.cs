@@ -35,6 +35,10 @@ namespace player
             _spineController.PlayAnimation("idle", true);
         }
 
+        private void OnAlmostFalling() {
+            _spineController.PlayAnimation("almost_falling", true);
+        }
+
         // ========================== Jump Events ============================
 
         private void OnJump()
@@ -56,6 +60,8 @@ namespace player
             _walkBehavior.onStartWalking += OnStartWalking;
             _walkBehavior.onStopWalking += OnStopWalking;
 
+            _walkBehavior.onAlmostFalling += OnAlmostFalling;
+
             _jumpBehavior.OnJump += OnJump;
             _jumpBehavior.OnGround += OnGround;
         }
@@ -64,6 +70,8 @@ namespace player
         {
             _walkBehavior.onStartWalking -= OnStartWalking;
             _walkBehavior.onStopWalking -= OnStopWalking;
+
+            _walkBehavior.onAlmostFalling -= OnAlmostFalling;
 
             _jumpBehavior.OnJump -= OnJump;
             _jumpBehavior.OnGround -= OnGround;
