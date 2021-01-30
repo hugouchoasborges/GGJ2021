@@ -52,6 +52,7 @@ namespace spine
             GameDebug.Log($"Skin Selected: {name}", util.LogType.Spine);
 
             _skeleton.skeleton.SetSkin(name);
+            _skeleton.ClearState();
         }
     }
 }
