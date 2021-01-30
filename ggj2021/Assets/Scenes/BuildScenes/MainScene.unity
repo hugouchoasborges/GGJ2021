@@ -137,7 +137,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7803846
 Transform:
   m_ObjectHideFlags: 0
@@ -389,6 +389,7 @@ GameObject:
   - component: {fileID: 620389856}
   - component: {fileID: 620389857}
   - component: {fileID: 620389858}
+  - component: {fileID: 620389860}
   - component: {fileID: 620389859}
   - component: {fileID: 620389855}
   - component: {fileID: 620389854}
@@ -552,6 +553,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _heightRespawn: -5
   _respawnPosition: {fileID: 1836909952}
+--- !u!114 &620389860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 620389852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 178beb7b14247a240b0885ea84f4af6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _jumpImpulse: 5
+  _jumpInputKey: Jump
 --- !u!1 &653467642
 GameObject:
   m_ObjectHideFlags: 0
