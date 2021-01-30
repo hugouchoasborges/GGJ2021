@@ -13,6 +13,7 @@ namespace player
         private RespawnBehavior _respawnBehavior;
 
         [SerializeField] private SpineController _spineController;
+        public SpineController spineController => _spineController;
 
         [SerializeField] SpeechBubble speechBubble;
 

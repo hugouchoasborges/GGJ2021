@@ -17,11 +17,25 @@ namespace spine
             _skeleton = GetComponent<SkeletonAnimation>();
         }
 
+
+        // ========================== Animations ============================
+
+
         public void PlayAnimation(string name, bool loop = false)
         {
             GameDebug.Log($"Started Animation: {name}", util.LogType.Spine);
 
             _skeleton.state.SetAnimation(0, name, loop);
+        }
+
+
+        // ========================== Skins ============================
+
+        public void SetSkin(string name)
+        {
+            GameDebug.Log($"Skin Selected: {name}", util.LogType.Spine);
+
+            _skeleton.skeleton.SetSkin(name);
         }
     }
 }
