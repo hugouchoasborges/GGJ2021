@@ -22,6 +22,7 @@ namespace player
         [Header("Multiple jumps")]
         [SerializeField] int _maxJumps = 2;
         int _jumpCount = 0;
+        public bool wallJumpActivated = true;
 
         [Header("Input Keys (string)")]
         [SerializeField] private string _jumpInputKey = "Jump";
@@ -47,16 +48,19 @@ namespace player
 
         private void JumpInput()
         {
-            if ((_groundChecker.isGrounded || _jumpCount < _maxJumps) && Input.GetButtonDown(_jumpInputKey))
+            var canWallJump = wallJumpActivated && _groundChecker.isTouchingWall;
+
+            if ((_groundChecker.isGrounded || canWallJump || _jumpCount < _maxJumps) && Input.GetButtonDown(_jumpInputKey))
             {
                 OnJump?.Invoke();
 
                 // Wall jump
-                if (_groundChecker.isTouchingWall) {
+                if (canWallJump) {
                     GameDebug.Log("WALL JUMP", util.LogType.MovementEvents);
+                    _jumpCount = 1;
                     _rigidbody2D.velocity = Vector2.zero;
                     _rigidbody2D.AddForce(
-                        Vector2.up * _jumpImpulse + Vector2.right * -_walkBehavior.facingSign * _jumpImpulse,
+                        Vector2.up * _jumpImpulse + new Vector2(-_walkBehavior.facingSign, 0) * 5f * _jumpImpulse,
                         ForceMode2D.Impulse
                         );
                     return;

@@ -44,7 +44,7 @@ namespace player
 
         private void OnJump()
         {
-            _spineController.PlayAnimation("fly", true);
+            _spineController.PlayAnimation("jump_up");
         }
 
         private void OnGround()

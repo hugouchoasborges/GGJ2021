@@ -444,6 +444,7 @@ MonoBehaviour:
   _fallMultiplier: 2.5
   _lowJumpMultiplier: 2
   _maxJumps: 2
+  wallJumpActivated: 0
   _jumpInputKey: Jump
   _groundChecker: {fileID: 2378040048511980892}
   _walkBehavior: {fileID: 2378040049050410226}
@@ -492,12 +493,12 @@ PrefabInstance:
     - target: {fileID: 1850549390836141369, guid: 9020ac9047f32b2408759ef1b48c9a61,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.2
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 1850549390836141369, guid: 9020ac9047f32b2408759ef1b48c9a61,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.8
+      value: 0.45
       objectReference: {fileID: 0}
     - target: {fileID: 1850549390836141369, guid: 9020ac9047f32b2408759ef1b48c9a61,
         type: 3}
@@ -547,22 +548,22 @@ PrefabInstance:
     - target: {fileID: 2511871222399090696, guid: 9020ac9047f32b2408759ef1b48c9a61,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2511871222399090696, guid: 9020ac9047f32b2408759ef1b48c9a61,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5354311252703636950, guid: 9020ac9047f32b2408759ef1b48c9a61,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5354311252703636950, guid: 9020ac9047f32b2408759ef1b48c9a61,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8947127684288189645, guid: 9020ac9047f32b2408759ef1b48c9a61,
         type: 3}
