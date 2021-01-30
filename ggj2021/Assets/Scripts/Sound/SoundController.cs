@@ -51,26 +51,27 @@ namespace sound
 
         // ========================== Methods ============================
 
-        public void Play(string audioName)
+        public static void Play(string audioName, bool loop = false)
         {
-            if (!_audioSources.ContainsKey(audioName))
+            if (!Instance._audioSources.ContainsKey(audioName))
             {
                 GameDebug.LogWarning($"Audio {audioName} not found!!!", util.LogType.Audio);
                 return;
             }
 
-            _audioSources[audioName].Play();
+            Instance._audioSources[audioName].loop = loop;
+            Instance._audioSources[audioName].Play();
         }
 
-        public void Stop(string audioName)
+        public static void Stop(string audioName)
         {
-            if (!_audioSources.ContainsKey(audioName))
+            if (!Instance._audioSources.ContainsKey(audioName))
             {
                 GameDebug.LogWarning($"Audio {audioName} not found!!!", util.LogType.Audio);
                 return;
             }
 
-            _audioSources[audioName].Stop();
+            Instance._audioSources[audioName].Stop();
         }
 
         // ========================== Singleton ============================
