@@ -17,6 +17,8 @@ namespace player
 
         [SerializeField] SpeechBubble speechBubble;
 
+        [SerializeField] bool isDepressed = true;
+
         private void Awake()
         {
             _walkBehavior = GetComponent<WalkBehavior>();
@@ -28,12 +30,14 @@ namespace player
         // ========================== Walk Events ============================
         private void OnStartWalking()
         {
-            _spineController.PlayAnimation("walk");
+            if(isDepressed) _spineController.PlayAnimation("walk_depressed");
+            else _spineController.PlayAnimation("walk");
         }
 
         private void OnStopWalking()
         {
-            _spineController.PlayAnimation("idle");
+            if (isDepressed) _spineController.PlayAnimation("idle_depressed");
+            else _spineController.PlayAnimation("idle");
         }
 
         private void OnAlmostFalling() {
