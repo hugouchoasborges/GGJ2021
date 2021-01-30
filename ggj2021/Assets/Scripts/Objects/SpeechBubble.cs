@@ -16,27 +16,29 @@ public class SpeechBubble : MonoBehaviour
     [Header("Editor")]
     [SerializeField] Sprite[] editorSprites;
 
+    Vector3 defaultScale;
     Coroutine routine;
 
     private void Start()
     {
+        defaultScale = transform.localScale;
         transform.localScale = Vector3.zero;
     }
 
-    public void Appear(Sprite sprite)
+    public void Open(Sprite sprite)
     {
         content.sprite = sprite;
         if (routine != null) StopCoroutine(routine);
-        routine = StartCoroutine(CoroutineUtility.CurveRoutine(appearDuration, appearCurve, (t, v) => transform.localScale = Vector3.one * v));
+        routine = StartCoroutine(CoroutineUtility.CurveRoutine(appearDuration, appearCurve, (t, v) => transform.localScale = defaultScale * v));
     }
     public void Appear()
     {
-        Appear(editorSprites[Random.Range(0, editorSprites.Length)]);
+        Open(editorSprites[Random.Range(0, editorSprites.Length)]);
     }
 
-    public void Hide()
+    public void Close()
     {
         if (routine != null) StopCoroutine(routine);
-        routine = StartCoroutine(CoroutineUtility.CurveRoutine(hideDuration, hideCurve, (t, v) => transform.localScale = Vector3.one * v));
+        routine = StartCoroutine(CoroutineUtility.CurveRoutine(hideDuration, hideCurve, (t, v) => transform.localScale = defaultScale * v));
     }
 }

@@ -7,7 +7,7 @@ using util;
 namespace player
 {
     [RequireComponent(typeof(Rigidbody2D))]
-    public class JumpBehavior : MonoBehaviour
+    public class JumpBehavior : PlayerModule
     {
         [Header("Jump controls")]
         [SerializeField]
@@ -51,6 +51,11 @@ namespace player
 
         private void JumpInput()
         {
+            if (!controller.MovementInputEnabled)
+            {
+                return;
+            }
+
             var canWallJump = wallJumpActivated && _groundChecker.isTouchingWall;
 
             if ((_groundChecker.isGrounded || canWallJump || _jumpCount < _maxJumps) && Input.GetButtonDown(_jumpInputKey))

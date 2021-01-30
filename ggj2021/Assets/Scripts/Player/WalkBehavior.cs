@@ -6,7 +6,7 @@ using util;
 
 namespace player
 {
-    public class WalkBehavior : MonoBehaviour
+    public class WalkBehavior : PlayerModule
     {
         [Header("Walk controls")]
         [SerializeField]
@@ -34,7 +34,7 @@ namespace player
 
         // ========================== Facing Left/Right ============================
         private bool _isFacingRight;
-        private bool IsFacingRight
+        public bool IsFacingRight
         {
             get => _isFacingRight;
             set
@@ -58,6 +58,11 @@ namespace player
 
         private void WalkInput()
         {
+            if(!controller.MovementInputEnabled)
+            {
+                _horizontalInput = Mathf.Lerp(_horizontalInput, 0f, Time.deltaTime);
+                return;
+            }
 
             // Horizontal movement
             _horizontalInput = Input.GetAxis(_horizontalInputKey);

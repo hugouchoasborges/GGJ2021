@@ -1,0 +1,62 @@
+
+chameleon.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Layer5
+  rotate: false
+  xy: 240, 304
+  size: 97, 116
+  orig: 97, 116
+  offset: 0, 0
+  index: -1
+Layer6
+  rotate: false
+  xy: 240, 181
+  size: 110, 105
+  orig: 110, 105
+  offset: 0, 0
+  index: -1
+Layer7
+  rotate: false
+  xy: 2, 422
+  size: 343, 177
+  orig: 343, 177
+  offset: 0, 0
+  index: -1
+body_happy
+  rotate: true
+  xy: 347, 288
+  size: 311, 236
+  orig: 311, 236
+  offset: 0, 0
+  index: -1
+body_sad
+  rotate: true
+  xy: 2, 109
+  size: 311, 236
+  orig: 311, 236
+  offset: 0, 0
+  index: -1
+eye_happy
+  rotate: false
+  xy: 352, 195
+  size: 87, 91
+  orig: 87, 91
+  offset: 0, 0
+  index: -1
+eye_sad
+  rotate: true
+  xy: 352, 106
+  size: 87, 91
+  orig: 87, 91
+  offset: 0, 0
+  index: -1
+mouth
+  rotate: true
+  xy: 2, 2
+  size: 105, 70
+  orig: 105, 70
+  offset: 0, 0
+  index: -1

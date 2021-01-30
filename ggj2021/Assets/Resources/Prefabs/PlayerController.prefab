@@ -374,6 +374,7 @@ GameObject:
   - component: {fileID: 2378040049050410227}
   - component: {fileID: 2378040049050410190}
   - component: {fileID: 9047640375960954373}
+  - component: {fileID: 8717738983576848980}
   m_Layer: 0
   m_Name: PlayerController
   m_TagString: Untagged
@@ -411,6 +412,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spineController: {fileID: 1925759593}
+  interaction: {fileID: 8717738983576848980}
   speechBubble: {fileID: 4431729885360623493}
 --- !u!114 &2378040049050410226
 MonoBehaviour:
@@ -424,6 +426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4133c6603d21ab4ba1fc73274afb00d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controller: {fileID: 2378040049050410225}
   speed: 2
   _horizontalInputKey: Horizontal
   _verticalInputKey: Vertical
@@ -440,6 +443,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 178beb7b14247a240b0885ea84f4af6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controller: {fileID: 2378040049050410225}
   _jumpImpulse: 5
   _glideMultiplier: 0.3
   _fallMultiplier: 2.5
@@ -498,6 +502,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: 281e54e010ea0d342a2713671e563d0c, type: 2}
   offset: {x: 0, y: 1.43, z: 0}
+--- !u!114 &8717738983576848980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2378040049050410188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4efa1cf6f282eee44a48ceffda2822c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: {x: 0.25, y: 1, z: 0}
+  radius: 1.85
+  layer: 10
+  walkBehavior: {fileID: 2378040049050410226}
+  interactable: {fileID: 0}
+  interactionLink: {fileID: 0}
+  interactableCharacter: {fileID: 0}
 --- !u!1001 &3502367414649885216
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -505,6 +528,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2378040049050410224}
     m_Modifications:
+    - target: {fileID: 1085703847222373912, guid: 9020ac9047f32b2408759ef1b48c9a61,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1002446839834217560, guid: 8dc505720ecdc8340b96f52aa0550b5c,
+        type: 3}
     - target: {fileID: 1850549390836141369, guid: 9020ac9047f32b2408759ef1b48c9a61,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -559,6 +588,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1850549390836141369, guid: 9020ac9047f32b2408759ef1b48c9a61,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1850549390836141369, guid: 9020ac9047f32b2408759ef1b48c9a61,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 2511871222399090696, guid: 9020ac9047f32b2408759ef1b48c9a61,
         type: 3}

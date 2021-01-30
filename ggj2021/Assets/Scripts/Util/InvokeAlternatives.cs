@@ -20,13 +20,13 @@ public static class InvokeAlternatives
         action?.Invoke();
     }
 
-    public static void InvokeAfterFrame(this MonoBehaviour host, System.Action action)
+    public static Coroutine InvokeAfterFrame(this MonoBehaviour host, System.Action action)
     {
-        host.StartCoroutine(InvokeAfterFrame_Routine(action));
+        return host.StartCoroutine(InvokeAfterFrame_Routine(action));
     }
 
-    public static void Invoke(this MonoBehaviour host, float delay, System.Action action, bool isRealtime = false)
+    public static Coroutine Invoke(this MonoBehaviour host, float delay, System.Action action, bool isRealtime = false)
     {
-        host.StartCoroutine(Invoke_Routine(delay, action, isRealtime));
+        return host.StartCoroutine(Invoke_Routine(delay, action, isRealtime));
     }
 }

@@ -12,12 +12,13 @@ namespace player
         private JumpBehavior _jumpBehavior;
         private RespawnBehavior _respawnBehavior;
 
-        [SerializeField] private SpineController _spineController;
-        public SpineController spineController => _spineController;
-
+        [SerializeField] SpineController _spineController;
+        [SerializeField] InteractionBehaviour interaction;
         [SerializeField] SpeechBubble speechBubble;
-
         [SerializeField] bool isDepressed = true;
+
+        public SpineController spineController => _spineController;
+        public bool MovementInputEnabled => interaction.interactableCharacter == null;
 
         private void Awake()
         {
@@ -93,7 +94,7 @@ namespace player
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.O)) speechBubble.Appear();
-            if (Input.GetKeyDown(KeyCode.P)) speechBubble.Hide();
+            if (Input.GetKeyDown(KeyCode.P)) speechBubble.Close();
         }
     }
 }
