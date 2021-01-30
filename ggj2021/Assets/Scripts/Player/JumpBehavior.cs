@@ -35,6 +35,9 @@ namespace player
         // Callbacks
         public event Action OnJump = null;
         public event Action OnGround = null;
+        public event Action OnFall = null;
+
+        private bool _isFalling = false;
 
 
         private void Awake()
@@ -71,6 +74,12 @@ namespace player
                 _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, 0);
                 _rigidbody2D.AddForce(Vector2.up * _jumpImpulse, ForceMode2D.Impulse);
             }
+
+            if (!_isFalling && !_groundChecker.isGrounded && _rigidbody2D.velocity.y < 0)
+            {
+                _isFalling = true;
+                OnFall?.Invoke();
+            }
         }
 
         private void BetterJumpModifier()
@@ -97,6 +106,7 @@ namespace player
         private void OnGrounded()
         {
             _jumpCount = 0;
+            _isFalling = false;
 
             OnGround?.Invoke();
         }

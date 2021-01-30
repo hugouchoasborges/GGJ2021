@@ -1250,6 +1250,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1925759589, guid: a83c6dbe99fabc945924d1a2601a1944, type: 3}
+      propertyPath: initialSkinName
+      value: sad
+      objectReference: {fileID: 0}
     - target: {fileID: 1925759591, guid: a83c6dbe99fabc945924d1a2601a1944, type: 3}
       propertyPath: m_Mesh
       value: 

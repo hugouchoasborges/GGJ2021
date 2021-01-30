@@ -11,21 +11,37 @@ namespace spine
     public class SpineController : MonoBehaviour
     {
         private SkeletonAnimation _skeleton;
+        private string _currentSkin;
 
         private void Awake()
         {
             _skeleton = GetComponent<SkeletonAnimation>();
+            _currentSkin = _skeleton.initialSkinName;
         }
 
 
         // ========================== Animations ============================
 
-
-        public void PlayAnimation(string name, bool loop = false)
+        public void AddAnimation(string name, bool loop = true, float delay = 0, bool useSkinPrefix = false)
         {
-            GameDebug.Log($"Started Animation: {name}", util.LogType.Spine);
+            string animationName = name;
+            if (useSkinPrefix && !string.IsNullOrEmpty(_currentSkin))
+                animationName = $"{_currentSkin}_{animationName}";
 
-            _skeleton.state.SetAnimation(0, name, loop);
+            GameDebug.Log($"Add Animation to sequence: {animationName}", util.LogType.Spine);
+
+            _skeleton.state.AddAnimation(0, animationName, loop, delay);
+        }
+
+        public void PlayAnimation(string name, bool loop = true, bool useSkinPrefix = false)
+        {
+            string animationName = name;
+            if (useSkinPrefix && !string.IsNullOrEmpty(_currentSkin))
+                animationName = $"{_currentSkin}_{animationName}";
+
+            GameDebug.Log($"Started Animation: {animationName}", util.LogType.Spine);
+
+            _skeleton.state.SetAnimation(0, animationName, loop);
         }
 
 

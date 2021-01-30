@@ -28,28 +28,34 @@ namespace player
         // ========================== Walk Events ============================
         private void OnStartWalking()
         {
-            _spineController.PlayAnimation("walk", true);
+            _spineController.PlayAnimation("walk");
         }
 
         private void OnStopWalking()
         {
-            _spineController.PlayAnimation("idle", true);
+            _spineController.PlayAnimation("idle");
         }
 
         private void OnAlmostFalling() {
-            _spineController.PlayAnimation("almost_falling", true);
+            _spineController.PlayAnimation("almost_falling");
         }
 
         // ========================== Jump Events ============================
 
         private void OnJump()
         {
-            _spineController.PlayAnimation("jump_up");
+            _spineController.PlayAnimation("jump_up", false);
+        }
+
+        private void OnFall()
+        {
+            _spineController.PlayAnimation("jump_down", false);
         }
 
         private void OnGround()
         {
-            _spineController.PlayAnimation("idle", true);
+            _spineController.PlayAnimation("landing", false);
+            _spineController.AddAnimation("idle", true, 0.2f);
         }
 
         // ----------------------------------------------------------------------------------
@@ -65,6 +71,7 @@ namespace player
 
             _jumpBehavior.OnJump += OnJump;
             _jumpBehavior.OnGround += OnGround;
+            _jumpBehavior.OnFall += OnFall;
         }
 
         private void OnDisable()
@@ -76,6 +83,7 @@ namespace player
 
             _jumpBehavior.OnJump -= OnJump;
             _jumpBehavior.OnGround -= OnGround;
+            _jumpBehavior.OnFall -= OnFall;
         }
 
         private void Update()
