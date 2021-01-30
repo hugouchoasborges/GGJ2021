@@ -15,33 +15,53 @@ namespace player
         [SerializeField] SpineController _spineController;
         [SerializeField] InteractionBehaviour interaction;
         [SerializeField] SpeechBubble speechBubble;
-        [SerializeField] bool isDepressed = true;
+        [SerializeField] StateSettings[] stateSettings;
+
+        [Header("Runtime")]
+        [SerializeField] PlayerState currentState;
+
+        public enum PlayerState
+        {
+            Depressed,
+            Neutral,
+            Happy
+        }
+
+        [System.Serializable]
+        public struct StateSettings
+        {
+            public PlayerState state;
+            public string skinName;
+            public string idleAnimation;
+            public string walkAnimation;
+            [Range(0f, 10f)] public float walkSpeed;
+        }
 
         public SpineController spineController => _spineController;
         public bool MovementInputEnabled => interaction.interactableCharacter == null;
+        public StateSettings Settings => stateSettings[(int)currentState];
 
         private void Awake()
         {
             _walkBehavior = GetComponent<WalkBehavior>();
             _jumpBehavior = GetComponent<JumpBehavior>();
             _respawnBehavior = GetComponent<RespawnBehavior>();
+            SetState(PlayerState.Depressed);
         }
-
 
         // ========================== Walk Events ============================
         private void OnStartWalking()
         {
-            if(isDepressed) _spineController.PlayAnimation("walk_depressed");
-            else _spineController.PlayAnimation("walk");
+            _spineController.PlayAnimation(Settings.walkAnimation);
         }
 
         private void OnStopWalking()
         {
-            if (isDepressed) _spineController.PlayAnimation("idle_depressed");
-            else _spineController.PlayAnimation("idle");
+            _spineController.PlayAnimation(Settings.idleAnimation);
         }
 
-        private void OnAlmostFalling() {
+        private void OnAlmostFalling() 
+        {
             _spineController.PlayAnimation("almost_falling");
         }
 
@@ -60,7 +80,7 @@ namespace player
         private void OnGround()
         {
             _spineController.PlayAnimation("landing", false);
-            _spineController.AddAnimation("idle", true, 0.2f);
+            _spineController.AddAnimation(Settings.idleAnimation, true, 0.2f);
         }
 
         // ----------------------------------------------------------------------------------
@@ -104,6 +124,13 @@ namespace player
         public void TEST_HideSpeechBubble()
         {
             speechBubble.Close();
+        }
+    
+        public void SetState(PlayerState state)
+        {
+            currentState = state;
+            spineController.SetSkin(Settings.skinName);
+            spineController.PlayAnimation(_walkBehavior.Walking ? Settings.walkAnimation : Settings.idleAnimation);
         }
     }
 }

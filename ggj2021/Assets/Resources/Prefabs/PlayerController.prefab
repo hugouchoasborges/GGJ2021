@@ -414,6 +414,23 @@ MonoBehaviour:
   _spineController: {fileID: 1925759593}
   interaction: {fileID: 8717738983576848980}
   speechBubble: {fileID: 4431729885360623493}
+  stateSettings:
+  - state: 0
+    skinName: sad
+    idleAnimation: idle_depressed
+    walkAnimation: walk_depressed
+    walkSpeed: 1
+  - state: 1
+    skinName: neutral
+    idleAnimation: idle
+    walkAnimation: walk
+    walkSpeed: 2
+  - state: 2
+    skinName: happy
+    idleAnimation: idle
+    walkAnimation: walk
+    walkSpeed: 2
+  currentState: 0
 --- !u!114 &2378040049050410226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -427,7 +444,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 2378040049050410225}
-  speed: 2
+  deadZone: 0.1
   _horizontalInputKey: Horizontal
   _verticalInputKey: Vertical
   _groundChecker: {fileID: 2378040048511980892}

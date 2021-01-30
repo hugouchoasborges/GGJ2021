@@ -10,7 +10,6 @@ namespace player
     {
         [Header("Walk controls")]
         [SerializeField]
-        [Range(0f, 10f)] private float speed = 1.0f;
         [Range(0f, 1f)] private float deadZone = 0.1f;
 
         [Header("Input Keys (string)")]
@@ -32,6 +31,8 @@ namespace player
         public event Action onAlmostFalling;
 
 
+        float MoveSpeed => controller.Settings.walkSpeed;
+
         // ========================== Facing Left/Right ============================
         private bool _isFacingRight;
         public bool IsFacingRight
@@ -50,6 +51,7 @@ namespace player
         public float facingSign {
             get { return Mathf.Sign(transform.localScale.x); }
         }
+        public bool Walking => _isWalking;
 
         private void Awake()
         {
@@ -73,7 +75,7 @@ namespace player
                 //    transform.position.y
                 //    );
 
-                _rigidbody2D.velocity = new Vector2(_horizontalInput * speed, _rigidbody2D.velocity.y);
+                _rigidbody2D.velocity = new Vector2(_horizontalInput * MoveSpeed, _rigidbody2D.velocity.y);
 
                 IsFacingRight = _horizontalInput > 0;
             }

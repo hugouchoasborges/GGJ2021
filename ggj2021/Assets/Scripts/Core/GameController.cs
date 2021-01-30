@@ -39,9 +39,14 @@ namespace ui
         // ========================== GameFlow ============================
         // ----------------------------------------------------------------------------------
 
-        public void ChangePlayerSkin(string skinName)
+        public void SetPlayerState(PlayerController.PlayerState playerState)
         {
-            playerController.spineController.SetSkin(skinName);
+            playerController.SetState(playerState);
+        }
+        public void SetPlayerState(string state)
+        {
+            System.Enum.TryParse(state, out PlayerController.PlayerState playerState);
+            SetPlayerState(playerState);
         }
 
         // ----------------------------------------------------------------------------------

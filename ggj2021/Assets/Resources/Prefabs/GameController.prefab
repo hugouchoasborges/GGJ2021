@@ -51,14 +51,14 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 5242147663343557274}
-          m_MethodName: ChangePlayerSkin
+          m_MethodName: SetPlayerState
           m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: happy
+            m_StringArgument: Depressed
             m_BoolArgument: 0
           m_CallState: 2
   - key: 50
@@ -66,14 +66,14 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 5242147663343557274}
-          m_MethodName: ChangePlayerSkin
+          m_MethodName: SetPlayerState
           m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: neutral
+            m_StringArgument: Neutral
             m_BoolArgument: 0
           m_CallState: 2
   - key: 51
@@ -81,14 +81,14 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 5242147663343557274}
-          m_MethodName: ChangePlayerSkin
+          m_MethodName: SetPlayerState
           m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: sad
+            m_StringArgument: Happy
             m_BoolArgument: 0
           m_CallState: 2
   - key: 111
