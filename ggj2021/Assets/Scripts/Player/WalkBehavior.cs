@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using util;
 
 namespace player
 {
@@ -20,7 +21,14 @@ namespace player
         private float _verticalInput;
 
         // Components
+        [Header("Components")]
+        [SerializeField] private GroundChecker _groundChecker;
         private Rigidbody2D _rigidbody2D;
+
+        // Callbacks
+        private bool _isWalking = false;
+        public event Action onStartWalking;
+        public event Action onStopWalking;
 
 
         // ========================== Facing Left/Right ============================
@@ -39,7 +47,8 @@ namespace player
             }
         }
 
-        private void Awake() {
+        private void Awake()
+        {
             _rigidbody2D = GetComponent<Rigidbody2D>();
         }
 
@@ -61,9 +70,33 @@ namespace player
             }
         }
 
+        /// <summary>
+        /// Check if the player is walking on the ground and Invoke callbacks.
+        /// </summary>
+        private void GroundWalkingCheck()
+        {
+            if (!_isWalking && _groundChecker.isGrounded && Math.Abs(_rigidbody2D.velocity.x) > deadZone)
+            {
+                GameDebug.Log("Started Walking", util.LogType.MovementEvents);
+
+                _isWalking = true;
+                onStartWalking?.Invoke();
+            }
+            else if (_isWalking && (!_groundChecker.isGrounded || Math.Abs(_rigidbody2D.velocity.x) < deadZone))
+            {
+                GameDebug.Log("Finished Walking", util.LogType.MovementEvents);
+
+                _isWalking = false;
+
+                if(_groundChecker.isGrounded)
+                    onStopWalking?.Invoke();
+            }
+        }
+
         private void Update()
         {
             WalkInput();
+            GroundWalkingCheck();
         }
     }
 }

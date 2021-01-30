@@ -473,7 +473,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   systemLogEnabled: 1
-  logTypesEnabled: 0000000001000000020000000300000004000000
+  logTypesEnabled: 00000000010000000200000003000000040000000500000006000000
 --- !u!4 &612442275
 Transform:
   m_ObjectHideFlags: 0
@@ -779,6 +779,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1925759591, guid: a83c6dbe99fabc945924d1a2601a1944, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2378040049050410188, guid: a83c6dbe99fabc945924d1a2601a1944,
         type: 3}
       propertyPath: m_Name
@@ -839,6 +843,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2378040049050410227, guid: a83c6dbe99fabc945924d1a2601a1944,
+        type: 3}
+      propertyPath: _respawnPosition
+      value: 
+      objectReference: {fileID: 1576341603}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a83c6dbe99fabc945924d1a2601a1944, type: 3}
 --- !u!1 &2051497529

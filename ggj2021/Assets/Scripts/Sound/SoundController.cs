@@ -59,6 +59,8 @@ namespace sound
                 return;
             }
 
+            GameDebug.Log($"Start Playing: {audioName}", util.LogType.Audio);
+
             Instance._audioSources[audioName].loop = loop;
             Instance._audioSources[audioName].Play();
         }
@@ -70,6 +72,8 @@ namespace sound
                 GameDebug.LogWarning($"Audio {audioName} not found!!!", util.LogType.Audio);
                 return;
             }
+
+            GameDebug.Log($"Stopped Playing: {audioName}", util.LogType.Audio);
 
             Instance._audioSources[audioName].Stop();
         }

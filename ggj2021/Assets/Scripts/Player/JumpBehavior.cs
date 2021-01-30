@@ -30,6 +30,10 @@ namespace player
         [SerializeField] private GroundChecker _groundChecker;
         private Rigidbody2D _rigidbody2D;
 
+        // Callbacks
+        public event Action OnJump = null;
+        public event Action OnGround = null;
+
 
         private void Awake()
         {
@@ -44,12 +48,14 @@ namespace player
         {
             if ((_groundChecker.isGrounded || _jumpCount < _maxJumps) && Input.GetButtonDown(_jumpInputKey))
             {
-                GameDebug.Log("JUMP", util.LogType.Player);
+                GameDebug.Log("JUMP", util.LogType.MovementEvents);
 
                 _jumpCount++;
 
                 _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, 0);
                 _rigidbody2D.AddForce(Vector2.up * _jumpImpulse, ForceMode2D.Impulse);
+
+                OnJump?.Invoke();
             }
         }
 
@@ -57,7 +63,7 @@ namespace player
         {
             if (_rigidbody2D.velocity.y < 0) // Falling
             {
-                if(Input.GetButton(_jumpInputKey))
+                if (Input.GetButton(_jumpInputKey))
                     _rigidbody2D.velocity += Vector2.up * Physics2D.gravity.y * (_glideMultiplier - 1) * Time.deltaTime;
                 else
                     _rigidbody2D.velocity += Vector2.up * Physics2D.gravity.y * (_fallMultiplier - 1) * Time.deltaTime;
@@ -74,11 +80,15 @@ namespace player
             BetterJumpModifier();
         }
 
-        private void OnGrounded() {
+        private void OnGrounded()
+        {
             _jumpCount = 0;
+
+            OnGround?.Invoke();
         }
 
-        private void OnUngrounded() {
+        private void OnUngrounded()
+        {
             if (_jumpCount == 0) _jumpCount = 1;
         }
     }

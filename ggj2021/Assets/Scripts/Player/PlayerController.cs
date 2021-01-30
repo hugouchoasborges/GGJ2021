@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using spine;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,6 +12,8 @@ namespace player
         private JumpBehavior _jumpBehavior;
         private RespawnBehavior _respawnBehavior;
 
+        [SerializeField] private SpineController _spineController;
+
         [SerializeField] SpeechBubble speechBubble;
 
         private void Awake()
@@ -18,6 +21,52 @@ namespace player
             _walkBehavior = GetComponent<WalkBehavior>();
             _jumpBehavior = GetComponent<JumpBehavior>();
             _respawnBehavior = GetComponent<RespawnBehavior>();
+        }
+
+
+        // ========================== Walk Events ============================
+        private void OnStartWalking()
+        {
+            _spineController.PlayAnimation("walk", true);
+        }
+
+        private void OnStopWalking()
+        {
+            _spineController.PlayAnimation("idle", true);
+        }
+
+        // ========================== Jump Events ============================
+
+        private void OnJump()
+        {
+            _spineController.PlayAnimation("fly", true);
+        }
+
+        private void OnGround()
+        {
+            _spineController.PlayAnimation("idle", true);
+        }
+
+        // ----------------------------------------------------------------------------------
+        // ========================== Enable/Disable ============================
+        // ----------------------------------------------------------------------------------
+
+        private void OnEnable()
+        {
+            _walkBehavior.onStartWalking += OnStartWalking;
+            _walkBehavior.onStopWalking += OnStopWalking;
+
+            _jumpBehavior.OnJump += OnJump;
+            _jumpBehavior.OnGround += OnGround;
+        }
+
+        private void OnDisable()
+        {
+            _walkBehavior.onStartWalking -= OnStartWalking;
+            _walkBehavior.onStopWalking -= OnStopWalking;
+
+            _jumpBehavior.OnJump -= OnJump;
+            _jumpBehavior.OnGround -= OnGround;
         }
 
         private void Update()

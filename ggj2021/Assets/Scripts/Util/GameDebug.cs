@@ -88,5 +88,9 @@ namespace util
         Audio,
         Scene,
         Player,
+
+        MovementEvents,
+
+        Spine,
     }
 }
