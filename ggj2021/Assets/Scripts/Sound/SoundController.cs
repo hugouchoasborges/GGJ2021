@@ -13,7 +13,7 @@ namespace sound
     public class SoundController : MonoBehaviour
     {
         [SerializeField]
-        private AudioClip[] _audioClipEntries;
+        private AudioEntry[] _audioEntries;
         private Dictionary<string, AudioSource> _audioSources = new Dictionary<string, AudioSource>();
 
         private void Awake()
@@ -28,18 +28,19 @@ namespace sound
 
         private void InitAudioSources()
         {
-            if (_audioClipEntries == null || _audioClipEntries.Length == 0)
+            if (_audioEntries == null || _audioEntries.Length == 0)
                 return;
 
             GameObject gObj;
             AudioSource aSource;
-            foreach (var audioClip in _audioClipEntries)
+            foreach (var audioClip in _audioEntries)
             {
-                gObj = new GameObject(audioClip.name);
+                gObj = new GameObject(audioClip.audioClip.name);
                 gObj.transform.parent = transform;
 
                 aSource = gObj.AddComponent<AudioSource>();
-                aSource.clip = audioClip;
+                aSource.clip = audioClip.audioClip;
+                aSource.volume = audioClip.volume;
             }
 
             AudioSource[] audioSources = GetComponentsInChildren<AudioSource>();
@@ -92,5 +93,25 @@ namespace sound
                 return instance;
             }
         }
+
+
+        // ========================== OnValidate - Inspector usability ============================
+        private void OnValidate()
+        {
+            foreach (var audioEntry in _audioEntries)
+            {
+                audioEntry.name = audioEntry.audioClip == null ? "" : audioEntry.audioClip.name;
+            }
+        }
+    }
+
+    [System.Serializable]
+    public class AudioEntry
+    {
+        [HideInInspector]
+        public string name;
+
+        public AudioClip audioClip;
+        [Range(0f, 1f)] public float volume = 1f;
     }
 }
