@@ -16,6 +16,8 @@ namespace player
         [Header("Input Keys (string)")]
         [SerializeField] private string _jumpInputKey = "Jump";
 
+        [Header("Components")]
+        [SerializeField] private GroundChecker _groundChecker;
         private Rigidbody2D _rigidbody2D;
 
         private void Awake()
@@ -23,9 +25,9 @@ namespace player
             _rigidbody2D = GetComponent<Rigidbody2D>();
         }
 
-        private void WalkInput()
+        private void JumpInput()
         {
-            if (Input.GetButtonDown(_jumpInputKey))
+            if (_groundChecker.isGrounded && Input.GetButtonDown(_jumpInputKey))
             {
                 GameDebug.Log("JUMP", util.LogType.Player);
 
@@ -35,7 +37,7 @@ namespace player
 
         private void Update()
         {
-            WalkInput();
+            JumpInput();
         }
     }
 }
