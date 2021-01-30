@@ -91,10 +91,19 @@ namespace player
             _jumpBehavior.OnFall -= OnFall;
         }
 
-        private void Update()
+
+        // ----------------------------------------------------------------------------------
+        // ========================== Speech Bubble test methods ============================
+        // ----------------------------------------------------------------------------------
+
+        public void TEST_ShowSpeechBubble()
         {
-            if (Input.GetKeyDown(KeyCode.O)) speechBubble.Appear();
-            if (Input.GetKeyDown(KeyCode.P)) speechBubble.Close();
+            speechBubble.Appear();
+        }
+
+        public void TEST_HideSpeechBubble()
+        {
+            speechBubble.Close();
         }
     }
 }

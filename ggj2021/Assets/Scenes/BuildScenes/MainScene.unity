@@ -394,6 +394,16 @@ PrefabInstance:
       propertyPath: playerController
       value: 
       objectReference: {fileID: 2378040049661327633}
+    - target: {fileID: 5242147663343557274, guid: 17d13a69347fef443a498a14f62a9b92,
+        type: 3}
+      propertyPath: keyTests.Array.data[3].events.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2378040049661327633}
+    - target: {fileID: 5242147663343557274, guid: 17d13a69347fef443a498a14f62a9b92,
+        type: 3}
+      propertyPath: keyTests.Array.data[4].events.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2378040049661327633}
     - target: {fileID: 5242147663343557275, guid: 17d13a69347fef443a498a14f62a9b92,
         type: 3}
       propertyPath: m_Name
