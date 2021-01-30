@@ -12,6 +12,8 @@ namespace player
         [Header("Jump controls")]
         [SerializeField]
         [Range(1f, 10)] private float _jumpImpulse = 5f;
+        [Range(1f, 10)] private float _fallMultiplier = 2.5f;
+        [Range(1f, 10)] private float _lowJumpMultiplier = 2f;
 
         [Header("Input Keys (string)")]
         [SerializeField] private string _jumpInputKey = "Jump";
@@ -35,9 +37,22 @@ namespace player
             }
         }
 
+        private void BetterJumpModifier()
+        {
+            if (_rigidbody2D.velocity.y < 0) // Falling
+            {
+                _rigidbody2D.velocity += Vector2.up * Physics2D.gravity.y * (_fallMultiplier - 1) * Time.deltaTime;
+            }
+            else if (_rigidbody2D.velocity.y > 0 && !Input.GetButton(_jumpInputKey))
+            {
+                _rigidbody2D.velocity += Vector2.up * Physics2D.gravity.y * (_lowJumpMultiplier - 1) * Time.deltaTime;
+            }
+        }
+
         private void Update()
         {
             JumpInput();
+            BetterJumpModifier();
         }
     }
 }
