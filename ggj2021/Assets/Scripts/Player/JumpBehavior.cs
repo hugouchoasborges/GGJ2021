@@ -28,6 +28,7 @@ namespace player
 
         [Header("Components")]
         [SerializeField] private GroundChecker _groundChecker;
+        [SerializeField] private WalkBehavior _walkBehavior;
         private Rigidbody2D _rigidbody2D;
 
         // Callbacks
@@ -48,14 +49,23 @@ namespace player
         {
             if ((_groundChecker.isGrounded || _jumpCount < _maxJumps) && Input.GetButtonDown(_jumpInputKey))
             {
+                OnJump?.Invoke();
+
+                // Wall jump
+                if (_groundChecker.isTouchingWall) {
+                    GameDebug.Log("WALL JUMP", util.LogType.MovementEvents);
+                    _rigidbody2D.velocity = Vector2.zero;
+                    _rigidbody2D.AddForce(
+                        Vector2.up * _jumpImpulse + Vector2.right * -_walkBehavior.facingSign * _jumpImpulse,
+                        ForceMode2D.Impulse
+                        );
+                    return;
+                }
+
                 GameDebug.Log("JUMP", util.LogType.MovementEvents);
-
                 _jumpCount++;
-
                 _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, 0);
                 _rigidbody2D.AddForce(Vector2.up * _jumpImpulse, ForceMode2D.Impulse);
-
-                OnJump?.Invoke();
             }
         }
 

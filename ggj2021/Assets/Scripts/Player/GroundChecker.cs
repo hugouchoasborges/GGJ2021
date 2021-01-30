@@ -12,15 +12,20 @@ namespace player
         // Fall/Wall check
         public Transform[] fallPoints;
         public bool isFallingBorder {
-            get {
-                int count = 0;
-                foreach (Transform p in fallPoints) {
-                    if (Physics2D.OverlapPoint(p.position, LayerMask.GetMask("Ground", "Wall")))
-                        count++;
-                }
-                return count == 1;
-            }
+            get { return GetTouchingPoints("Ground") == 1; }
         }
+        public bool isTouchingWall {
+            get { return GetTouchingPoints("Wall") == 1; }
+        }
+        private int GetTouchingPoints(string layer) {
+            int count = 0;
+            foreach (Transform p in fallPoints) {
+                if (Physics2D.OverlapPoint(p.position, LayerMask.GetMask(layer)))
+                    count++;
+            }
+            return count;
+        }
+        
 
 
         private bool _isGrounded;

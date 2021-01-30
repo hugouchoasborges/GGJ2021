@@ -47,6 +47,9 @@ namespace player
                         );
             }
         }
+        public float facingSign {
+            get { return Mathf.Sign(transform.localScale.x); }
+        }
 
         private void Awake()
         {

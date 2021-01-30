@@ -446,6 +446,7 @@ MonoBehaviour:
   _maxJumps: 2
   _jumpInputKey: Jump
   _groundChecker: {fileID: 2378040048511980892}
+  _walkBehavior: {fileID: 2378040049050410226}
 --- !u!114 &2378040049050410227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -491,12 +492,12 @@ PrefabInstance:
     - target: {fileID: 1850549390836141369, guid: 9020ac9047f32b2408759ef1b48c9a61,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.15
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 1850549390836141369, guid: 9020ac9047f32b2408759ef1b48c9a61,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.1
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 1850549390836141369, guid: 9020ac9047f32b2408759ef1b48c9a61,
         type: 3}
