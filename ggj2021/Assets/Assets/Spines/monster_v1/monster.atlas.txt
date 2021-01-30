@@ -1,0 +1,20 @@
+
+monster.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+body_big
+  rotate: false
+  xy: 2, 247
+  size: 540, 422
+  orig: 540, 422
+  offset: 0, 0
+  index: -1
+body_small
+  rotate: true
+  xy: 544, 467
+  size: 202, 125
+  orig: 202, 125
+  offset: 0, 0
+  index: -1
