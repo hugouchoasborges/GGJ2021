@@ -551,6 +551,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   follow: {fileID: 1594452804}
   velocity: 4
+  backgrounds: []
 --- !u!20 &1255821612
 Camera:
   m_ObjectHideFlags: 0

@@ -5,211 +5,204 @@ format: RGBA8888
 filter: Linear,Linear
 repeat: none
 Flying1_right
-  rotate: true
-  xy: 918, 595
+  rotate: false
+  xy: 2, 819
   size: 170, 90
   orig: 170, 90
   offset: 0, 0
   index: -1
 beak1
-  rotate: true
-  xy: 140, 702
+  rotate: false
+  xy: 744, 963
   size: 60, 51
   orig: 60, 51
   offset: 0, 0
   index: -1
 beak2
-  rotate: true
-  xy: 416, 675
+  rotate: false
+  xy: 344, 981
   size: 59, 33
   orig: 59, 33
   offset: 0, 0
   index: -1
+beak_happy
+  rotate: false
+  xy: 806, 963
+  size: 60, 51
+  orig: 60, 51
+  offset: 0, 0
+  index: -1
 eye_scared
   rotate: false
-  xy: 341, 661
+  xy: 121, 911
   size: 73, 73
   orig: 73, 73
   offset: 0, 0
   index: -1
 eyeblink
   rotate: false
-  xy: 77, 718
+  xy: 405, 976
   size: 59, 38
   orig: 59, 38
   offset: 0, 0
   index: -1
 eyehappy
   rotate: false
-  xy: 451, 654
+  xy: 343, 901
   size: 73, 73
   orig: 73, 73
   offset: 0, 0
   index: -1
 eyeneutral
   rotate: false
-  xy: 2, 687
+  xy: 941, 945
   size: 73, 69
   orig: 73, 69
   offset: 0, 0
   index: -1
 eyesad
-  rotate: true
-  xy: 140, 764
+  rotate: false
+  xy: 868, 958
   size: 71, 56
   orig: 71, 56
   offset: 0, 0
   index: -1
 finegrright4
-  rotate: false
-  xy: 317, 716
+  rotate: true
+  xy: 2, 992
   size: 22, 61
   orig: 22, 61
   offset: 0, 0
   index: -1
 fingerleft1
   rotate: true
-  xy: 466, 759
+  xy: 570, 971
   size: 43, 84
   orig: 43, 84
   offset: 0, 0
   index: -1
 fingerleft2
   rotate: true
-  xy: 918, 979
+  xy: 466, 973
   size: 41, 102
   orig: 41, 102
   offset: 0, 0
   index: -1
 fingerright1
-  rotate: false
-  xy: 537, 676
+  rotate: true
+  xy: 65, 987
   size: 27, 81
   orig: 27, 81
   offset: 0, 0
   index: -1
 fingerright2
-  rotate: false
-  xy: 537, 676
+  rotate: true
+  xy: 65, 987
   size: 27, 81
   orig: 27, 81
   offset: 0, 0
   index: -1
 fingerright3
   rotate: true
-  xy: 451, 729
+  xy: 148, 986
   size: 28, 84
   orig: 28, 84
   offset: 0, 0
   index: -1
-flying2_right
-  rotate: true
-  xy: 198, 852
-  size: 168, 182
-  orig: 168, 182
-  offset: 0, 0
-  index: -1
-flying_left
-  rotate: true
-  xy: 382, 852
-  size: 168, 182
-  orig: 168, 182
-  offset: 0, 0
-  index: -1
 footleft_straight
   rotate: true
-  xy: 466, 804
+  xy: 656, 968
   size: 46, 86
   orig: 46, 86
   offset: 0, 0
   index: -1
 footleft_straight2
   rotate: false
-  xy: 341, 736
+  xy: 234, 983
   size: 108, 31
   orig: 108, 31
   offset: 0, 0
   index: -1
 head
-  rotate: false
-  xy: 566, 731
+  rotate: true
+  xy: 864, 683
   size: 172, 145
   orig: 172, 145
   offset: 0, 0
   index: -1
 hoodiecape
   rotate: false
-  xy: 345, 769
+  xy: 655, 880
   size: 119, 81
   orig: 119, 81
   offset: 0, 0
   index: -1
 hoodiefront
   rotate: false
-  xy: 2, 837
+  xy: 2, 587
   size: 194, 183
   orig: 194, 183
   offset: 0, 0
   index: -1
 hoodieoff
   rotate: false
-  xy: 2, 758
+  xy: 517, 892
   size: 136, 77
   orig: 136, 77
   offset: 0, 0
   index: -1
 insidehoodie
   rotate: true
-  xy: 740, 600
+  xy: 174, 772
   size: 136, 161
   orig: 136, 161
   offset: 0, 0
   index: -1
 mouthhappy
   rotate: true
-  xy: 918, 767
+  xy: 418, 898
   size: 73, 97
   orig: 73, 97
   offset: 0, 0
   index: -1
 shirt
   rotate: true
-  xy: 566, 878
+  xy: 687, 713
   size: 142, 175
   orig: 142, 175
   offset: 0, 0
   index: -1
 shirt2
   rotate: true
-  xy: 743, 738
+  xy: 512, 738
   size: 140, 173
   orig: 140, 173
   offset: 0, 0
   index: -1
 shirt3
   rotate: true
-  xy: 743, 880
+  xy: 337, 756
   size: 140, 173
   orig: 140, 173
   offset: 0, 0
   index: -1
 shirt_right
   rotate: true
-  xy: 198, 779
+  xy: 196, 910
   size: 71, 145
   orig: 71, 145
   offset: 0, 0
   index: -1
 shirtleft
   rotate: true
-  xy: 198, 713
+  xy: 2, 921
   size: 64, 117
   orig: 64, 117
   offset: 0, 0
   index: -1
 tail
-  rotate: true
-  xy: 918, 842
+  rotate: false
+  xy: 776, 857
   size: 135, 99
   orig: 135, 99
   offset: 0, 0
