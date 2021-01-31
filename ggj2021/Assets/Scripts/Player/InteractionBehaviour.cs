@@ -50,7 +50,7 @@ public class InteractionBehaviour : MonoBehaviour
 
             if(Input.GetKeyDown(KeyCode.E) && interactionLink != null)
             {
-                interactableCharacter = interactionLink.character;
+                interactableCharacter = (InteractableCharacter)interactionLink.character;
                 interactableCharacter.StartInteraction();
                 interactionLink.TriggerFeedback(false);
             }

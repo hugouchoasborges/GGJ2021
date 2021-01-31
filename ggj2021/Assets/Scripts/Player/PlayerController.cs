@@ -132,5 +132,14 @@ namespace player
             spineController.SetSkin(Settings.skinName);
             spineController.PlayAnimation(_walkBehavior.Walking ? Settings.walkAnimation : Settings.idleAnimation);
         }
+
+
+
+        // Collected Colors
+        List<InteractableObject.ColorType> collectedColors = new List<InteractableObject.ColorType>();
+
+        public void PickUpObject(InteractableObject.ColorType color) {
+            if (!collectedColors.Contains(color)) collectedColors.Add(color);
+        }
     }
 }

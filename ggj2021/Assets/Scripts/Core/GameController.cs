@@ -10,6 +10,7 @@ namespace ui
     {
         [Header("Components")]
         public PlayerController playerController;
+        public UIController uiController;
 
         private void Start()
         {
