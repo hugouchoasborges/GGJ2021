@@ -55,7 +55,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 905203180}
   m_LocalRotation: {x: -0, y: 0, z: 0.67841613, w: 0.73467785}
-  m_LocalPosition: {x: -0.011178589, y: 0.36335865, z: 0}
+  m_LocalPosition: {x: -0.011178923, y: 0.36335865, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1397925326}
@@ -191,6 +191,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attachmentPivots:
   - {fileID: 1397925326}
+  - {fileID: 7701288217486287742}
 --- !u!33 &1925759591
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -481,6 +482,7 @@ Transform:
   - {fileID: 2969156687870992153}
   - {fileID: 1925759588}
   - {fileID: 905203181}
+  - {fileID: 2178188650922694791}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -670,6 +672,88 @@ MonoBehaviour:
   interactionLink: {fileID: 0}
   interactableCharacter: {fileID: 0}
   inputEnabled: 0
+--- !u!1 &5182364321303599513
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2178188650922694791}
+  - component: {fileID: 349261201007360869}
+  m_Layer: 11
+  m_Name: ChestPivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2178188650922694791
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5182364321303599513}
+  m_LocalRotation: {x: -0, y: 0, z: 0.7033326, w: 0.7108609}
+  m_LocalPosition: {x: -0.005746746, y: 0.13962002, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 7701288217486287742}
+  m_Father: {fileID: 2378040049050410224}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &349261201007360869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5182364321303599513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1fd8daaed7b64148a34acb96ba14ce1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skeletonRenderer: {fileID: 1925759589}
+  boneName: body2
+  followXYPosition: 1
+  followZPosition: 1
+  followBoneRotation: 1
+  followSkeletonFlip: 1
+  followLocalScale: 0
+  initializeOnAwake: 1
+--- !u!1 &8534722773055131533
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7701288217486287742}
+  m_Layer: 11
+  m_Name: ChestPivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7701288217486287742
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8534722773055131533}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.012, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2178188650922694791}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &3502367414649885216
 PrefabInstance:
   m_ObjectHideFlags: 0

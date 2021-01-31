@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 74424488722425810}
   - component: {fileID: 74424488722425811}
-  - component: {fileID: 74424488722425645}
+  - component: {fileID: 164490782748074382}
   m_Layer: 0
   m_Name: GlowingHeart
   m_TagString: Untagged
@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 74424488722425808}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -39.190002, y: -0.66, z: -0.18164062}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.9, y: 1, z: 1}
   m_Children:
   - {fileID: 74424489473351581}
@@ -84,7 +84,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &74424488722425645
+--- !u!114 &164490782748074382
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -93,18 +93,86 @@ MonoBehaviour:
   m_GameObject: {fileID: 74424488722425808}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdce4ef5cf7741b4ba90e62f530f5727, type: 3}
+  m_Script: {fileID: 11500000, guid: d4220fb3fa221914c80de90d0aaa91de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  glow: {fileID: 74424489473351580}
-  glowDuration: 0
-  glowCurve:
+  render: {fileID: 74424488722425811}
+  heartSprites:
+  - {fileID: 21300000, guid: 3c896eee26a4e504ab1601917d97d3ae, type: 3}
+  - {fileID: 21300000, guid: 588dcf09f4c46be4baf81998df1529b5, type: 3}
+  - {fileID: 21300000, guid: f165c233e8f78b44d9ad5a9939064f04, type: 3}
+  pieceIndex: 0
+  appearCurve:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.75
+      value: 1.15
+      inSlope: -0.024477486
+      outSlope: -0.024477486
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.51147586
+    - serializedVersion: 3
+      time: 0.9
+      value: 0.95
+      inSlope: 0.037314184
+      outSlope: 0.037314184
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.65786165
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0.004762316
+      outSlope: 0.004762316
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.9247992
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  objectColor: 0
+  appearSequenceDuration: 1
+  mergeCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  mergeMotionDuration: 0.85
+  mergeFadeDuration: 0.65
+  postMergeScale: 0.35
+  mergeEffectPoint: 0.4
 --- !u!1 &74424489473351554
 GameObject:
   m_ObjectHideFlags: 0
@@ -197,8 +265,7 @@ PrefabInstance:
         type: 3}
       propertyPath: character
       value: 
-      objectReference: {fileID: 5938947333114836975, guid: 2c4636dd9f464114d97909e78a7ce2fc,
-        type: 3}
+      objectReference: {fileID: 164490782748074382}
     - target: {fileID: 2735443871816709776, guid: 23e57b1fc98fd724bbd6943ea8758dba,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -257,12 +324,47 @@ PrefabInstance:
     - target: {fileID: 5907692555687010060, guid: 23e57b1fc98fd724bbd6943ea8758dba,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.04
+      value: 0.829
       objectReference: {fileID: 0}
     - target: {fileID: 5907692555687010060, guid: 23e57b1fc98fd724bbd6943ea8758dba,
         type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 5907692555687010060, guid: 23e57b1fc98fd724bbd6943ea8758dba,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.67586
+      objectReference: {fileID: 0}
+    - target: {fileID: 5907692555687010060, guid: 23e57b1fc98fd724bbd6943ea8758dba,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.67586
+      objectReference: {fileID: 0}
+    - target: {fileID: 5907692555687010060, guid: 23e57b1fc98fd724bbd6943ea8758dba,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.67586
+      objectReference: {fileID: 0}
+    - target: {fileID: 6170954638504454930, guid: 23e57b1fc98fd724bbd6943ea8758dba,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 0.026205182
+      objectReference: {fileID: 0}
+    - target: {fileID: 6170954638504454930, guid: 23e57b1fc98fd724bbd6943ea8758dba,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.843845
+      objectReference: {fileID: 0}
+    - target: {fileID: 6170954638504454930, guid: 23e57b1fc98fd724bbd6943ea8758dba,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -0.046586275
+      objectReference: {fileID: 0}
+    - target: {fileID: 6170954638504454930, guid: 23e57b1fc98fd724bbd6943ea8758dba,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.9587436
       objectReference: {fileID: 0}
     - target: {fileID: 7678510098290346266, guid: 23e57b1fc98fd724bbd6943ea8758dba,
         type: 3}
@@ -272,7 +374,7 @@ PrefabInstance:
     - target: {fileID: 7678510098290346266, guid: 23e57b1fc98fd724bbd6943ea8758dba,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23e57b1fc98fd724bbd6943ea8758dba, type: 3}

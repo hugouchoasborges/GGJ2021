@@ -157,7 +157,16 @@ namespace player
             _jumpBehavior.canGlide = Settings.glide;
             _jumpBehavior.JumpImpulse = Settings.jumpImpulse;
         }
+        public void AdvanceState()
+        {
+            if(currentState == PlayerState.Happy)
+            {
+                Debug.Log("YOU BEAT THE GAME!!!");
+                return;
+            }
 
+            SetState(currentState + 1);
+        }
 
         public void PickColorPiece(InteractableObject.ColorType color)
         {
