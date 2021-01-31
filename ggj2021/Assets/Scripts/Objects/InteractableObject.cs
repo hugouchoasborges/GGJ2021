@@ -8,7 +8,7 @@ public class InteractableObject : InteractableCharacter
 
     [SerializeField] SpriteRenderer glow;
 
-    public enum ColorType { PURPLE, RED, BLUE}
+    public enum ColorType { PURPLE, RED, BLUE, HEART}
     public ColorType objectColor = ColorType.PURPLE;
 
     public override void StartInteraction() {

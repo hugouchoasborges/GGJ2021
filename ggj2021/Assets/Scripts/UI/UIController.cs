@@ -18,6 +18,8 @@ public class UIController : MonoBehaviour
             case InteractableObject.ColorType.BLUE:
                 colorImages[2].Collect();
                 break;
+            case InteractableObject.ColorType.HEART:
+                break;
             default:
                 break;
         }
