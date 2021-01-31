@@ -71,6 +71,66 @@ namespace sound
             Instance._audioSources[audioName].Play();
         }
 
+        public static void FadeOut(string audioName, float duration = 1f, Action callback = null)
+        {
+            if (!Instance._audioSources.ContainsKey(audioName))
+            {
+                GameDebug.LogWarning($"Audio {audioName} not found!!!", util.LogType.Audio);
+                return;
+            }
+
+            GameDebug.Log($"Fading in: {audioName}", util.LogType.Audio);
+
+            //Instance._audioSources[audioName].FadeOut(duration, callback);
+            Instance.StartCoroutine(FadeOutCore(Instance._audioSources[audioName], duration, callback));
+        }
+
+        private static System.Collections.IEnumerator FadeOutCore(AudioSource a, float duration, Action callback = null)
+        {
+            float startVolume = a.volume;
+
+            while (a.volume > 0)
+            {
+                a.volume -= startVolume * Time.deltaTime / duration;
+                yield return new WaitForEndOfFrame();
+            }
+
+            a.Stop();
+            a.volume = startVolume;
+
+            callback?.Invoke();
+        }
+
+        public static void FadeIn(string audioName, float duration = 1f, Action callback = null)
+        {
+            if (!Instance._audioSources.ContainsKey(audioName))
+            {
+                GameDebug.LogWarning($"Audio {audioName} not found!!!", util.LogType.Audio);
+                return;
+            }
+
+            GameDebug.Log($"Fading in: {audioName}", util.LogType.Audio);
+
+            //Instance._audioSources[audioName].FadeIn(duration, callback);
+            Instance.StartCoroutine(FadeInCore(Instance._audioSources[audioName], duration, callback));
+        }
+
+        private static System.Collections.IEnumerator FadeInCore(AudioSource a, float duration, Action callback = null)
+        {
+            float finalVolume = a.volume;
+            float startVolume = a.volume = 0;
+
+            while (a.volume < finalVolume)
+            {
+                a.volume += finalVolume * Time.deltaTime / duration;
+                yield return new WaitForEndOfFrame();
+            }
+
+            a.volume = finalVolume;
+
+            callback?.Invoke();
+        }
+
         public static void Stop(string audioName)
         {
             if (!Instance._audioSources.ContainsKey(audioName))
