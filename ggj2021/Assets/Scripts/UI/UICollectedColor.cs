@@ -14,7 +14,7 @@ public class UICollectedColor : MonoBehaviour
 
 
     private void Awake() {
-        img = transform.GetChild(0).GetComponent<Image>();
+        img = GetComponent<Image>();
         RefreshImage();
     }
 
