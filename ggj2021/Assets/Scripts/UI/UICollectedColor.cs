@@ -9,20 +9,21 @@ public class UICollectedColor : MonoBehaviour
     [SerializeField] private Sprite colorSprite;
     private Image img;
 
-    private bool _collected = false;
+    public int _collected = 0;
+    public int _maxParts = 4;
+
 
     private void Awake() {
-        img = GetComponent<Image>();
+        img = transform.GetChild(0).GetComponent<Image>();
         RefreshImage();
     }
 
     public void Collect() {
-        _collected = true;
+        _collected++;
         RefreshImage();
     }
 
     public void RefreshImage() {
-        if (_collected) img.sprite = colorSprite;
-        else img.sprite = emptySprite;
+        img.fillAmount = _collected / (float)_maxParts;
     }
 }
