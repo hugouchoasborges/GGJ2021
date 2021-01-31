@@ -59,6 +59,10 @@ namespace player
         public StateSettings Settings => stateSettings[(int)currentState];
         public List<InteractableObject.ColorType> collectedColors = new List<InteractableObject.ColorType>();
 
+        public delegate void Event();
+        public Event OnColorAcquire;
+        public Event OnGameEnd;
+
         protected override void Awake()
         {
             base.Awake();
@@ -185,6 +189,7 @@ namespace player
             {
                 collectedColors.Add(color);
                 GameController.Instance.uiController.UpdateColorOutputs(colorPieces, colorPieceTotals);
+                OnColorAcquire?.Invoke();
             }
         }
     }

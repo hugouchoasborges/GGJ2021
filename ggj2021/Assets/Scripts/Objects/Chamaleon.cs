@@ -22,6 +22,11 @@ public class Chamaleon : InteractableCharacter
     [SerializeField] float jumpHeight;
     [SerializeField] AnimationCurve jumpHeightCurve;
 
+    [Header("Heart Spawn")]
+
+    [SerializeField] Vector3 heartSpawnOffset;
+    [SerializeField] GameObject heartPiecePrefab;
+
     IEnumerator JumpToPlayer_Routine(System.Action onEnd)
     {
         var pivot = player.PlayerController.Instance.GetComponentInChildren<spine.SpineController>().attachmentPivots[0];
@@ -47,9 +52,24 @@ public class Chamaleon : InteractableCharacter
         transform.SetParent(pivot);
         if(transform.position.x > startPos.x) transform.localScale = postJumpScale;
 
-        player.PlayerController.Instance.SetState(player.PlayerController.PlayerState.Happy);
-        
+        SubscribeToEvents();
         onEnd?.Invoke();
+    }
+
+    void SubscribeToEvents()
+    {
+        player.PlayerController.Instance.OnColorAcquire += () =>
+        {
+            if (player.PlayerController.Instance.collectedColors.Count == 3) StartCoroutine(SpawnPiece_Routine());
+        };
+    }
+
+    IEnumerator SpawnPiece_Routine()
+    {
+        Interactable = false;
+        var pos = player.PlayerController.Instance.transform.position + heartSpawnOffset;
+        var piece = Instantiate(heartPiecePrefab, pos, Quaternion.identity).GetComponent<HeartPiece>();
+        yield return piece.Appear(1);
     }
 
     public override bool StartInteraction(System.Action restoreInput)
