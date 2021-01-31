@@ -24,7 +24,6 @@ public class InteractableObject : InteractableCharacter
             yield return new WaitForSeconds(1f);
         }
 
-        player.PlayerController.Instance.SetState(player.PlayerController.PlayerState.Neutral);
         player.PlayerController.Instance.PickColorPiece(objectColor);
         yield return new WaitForSeconds(1f);
 

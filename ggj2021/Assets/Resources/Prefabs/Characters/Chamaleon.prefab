@@ -167,6 +167,7 @@ MonoBehaviour:
   render: {fileID: 5721476340103326851}
   interactionSprite: {fileID: 21300000, guid: 72ba73270d5c3d74297ee37f5f43bc66, type: 3}
   speechBubble: {fileID: 1744556367551334293}
+  requiredColor: 0
   jumpAnimations:
   - jumping
   - jumping2
@@ -233,6 +234,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  heartSpawnOffset: {x: 1.5, y: 0.5, z: 0}
+  heartPiecePrefab: {fileID: 74424488722425808, guid: 0975fae72f70fe04cb9e4d4b3a333e76,
+    type: 3}
 --- !u!1001 &1526626296320236080
 PrefabInstance:
   m_ObjectHideFlags: 0
