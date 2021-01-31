@@ -6940,49 +6940,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 271800181, guid: a83c6dbe99fabc945924d1a2601a1944, type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 1149970801, guid: a83c6dbe99fabc945924d1a2601a1944, type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 1925759587, guid: a83c6dbe99fabc945924d1a2601a1944, type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
     - target: {fileID: 1925759591, guid: a83c6dbe99fabc945924d1a2601a1944, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1974810498, guid: a83c6dbe99fabc945924d1a2601a1944, type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 2130877266, guid: a83c6dbe99fabc945924d1a2601a1944, type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 1853905730978611929, guid: a83c6dbe99fabc945924d1a2601a1944,
-        type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 2378040048511980889, guid: a83c6dbe99fabc945924d1a2601a1944,
-        type: 3}
-      propertyPath: m_Layer
-      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 2378040049050410188, guid: a83c6dbe99fabc945924d1a2601a1944,
         type: 3}
       propertyPath: m_Name
       value: PlayerController
-      objectReference: {fileID: 0}
-    - target: {fileID: 2378040049050410188, guid: a83c6dbe99fabc945924d1a2601a1944,
-        type: 3}
-      propertyPath: m_Layer
-      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 2378040049050410224, guid: a83c6dbe99fabc945924d1a2601a1944,
         type: 3}
@@ -7044,16 +7009,6 @@ PrefabInstance:
       propertyPath: _respawnPosition
       value: 
       objectReference: {fileID: 1836909952}
-    - target: {fileID: 4043930653059728548, guid: a83c6dbe99fabc945924d1a2601a1944,
-        type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 5526054881297925869, guid: a83c6dbe99fabc945924d1a2601a1944,
-        type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a83c6dbe99fabc945924d1a2601a1944, type: 3}
 --- !u!114 &2378040049661327633 stripped

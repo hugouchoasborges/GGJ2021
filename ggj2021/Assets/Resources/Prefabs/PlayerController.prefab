@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 271800182}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Back
   m_TagString: Untagged
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
@@ -39,7 +39,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1149970802}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Front
   m_TagString: Untagged
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 1925759590}
   - component: {fileID: 1925759589}
   - component: {fileID: 1925759592}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: PlayerSpine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -226,7 +226,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1974810499}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Back (1)
   m_TagString: Untagged
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
@@ -256,7 +256,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2130877267}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Front (1)
   m_TagString: Untagged
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
@@ -288,7 +288,7 @@ GameObject:
   - component: {fileID: 2378040048511980890}
   - component: {fileID: 2378040048511980892}
   - component: {fileID: 2378040048511980891}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: GroundChecker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -375,7 +375,7 @@ GameObject:
   - component: {fileID: 2378040049050410190}
   - component: {fileID: 9047640375960954373}
   - component: {fileID: 8717738983576848980}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: PlayerController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -545,6 +545,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2378040049050410224}
     m_Modifications:
+    - target: {fileID: 613621065451329156, guid: 9020ac9047f32b2408759ef1b48c9a61,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 1085703847222373912, guid: 9020ac9047f32b2408759ef1b48c9a61,
         type: 3}
       propertyPath: m_Sprite
@@ -626,6 +631,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2963524599177187577, guid: 9020ac9047f32b2408759ef1b48c9a61,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 5354311252703636950, guid: 9020ac9047f32b2408759ef1b48c9a61,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -640,6 +650,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SpeechBubble
+      objectReference: {fileID: 0}
+    - target: {fileID: 8947127684288189645, guid: 9020ac9047f32b2408759ef1b48c9a61,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9020ac9047f32b2408759ef1b48c9a61, type: 3}
