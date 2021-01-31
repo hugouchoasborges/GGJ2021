@@ -3,6 +3,7 @@ using sound;
 using UnityEngine;
 using UnityEngine.Events;
 using camera;
+using UnityEngine.SceneManagement;
 
 namespace ui
 {
@@ -110,5 +111,36 @@ namespace ui
                 TEST_CheckInput();
             }
         }
+
+
+        [Header("End Game")]
+        [SerializeField] Transform endPlayerPosition;
+
+        public void EndGameSequence() {
+            //Time.timeScale = 0.25f; //slow motion?
+            playerController.SetMovementLock(true);
+            uiController.FadeInAndOutWhite(5f, PositionPlayerEndGame, EndGame);
+        }
+
+        private void PositionPlayerEndGame() {
+            var playerTransform = playerController.transform;
+            playerTransform.position = endPlayerPosition.position;
+
+            // Face right
+            if (playerTransform.localScale.x < 0)
+                playerTransform.localScale = new Vector3(-playerTransform.localScale.x, playerTransform.localScale.y, playerTransform.localScale.z);
+
+            cutsceneController.SetEndGameCutscene();
+        }
+
+        private void EndGame() {
+            Debug.LogWarning("endgame");
+            uiController.FadeInAndOutWhite(8f, EndFade);
+        }
+
+        void EndFade() {
+            SoundController.FadeOut("crowlie_thirdforest", 4f, () => SceneManager.LoadScene("MenuScene"));
+        }
+
     }
 }

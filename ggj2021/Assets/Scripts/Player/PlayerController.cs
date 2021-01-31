@@ -179,6 +179,7 @@ namespace player
             if (currentState == PlayerState.Happy)
             {
                 Debug.Log("YOU BEAT THE GAME!!!");
+                GameController.Instance.EndGameSequence();
                 return;
             }
 

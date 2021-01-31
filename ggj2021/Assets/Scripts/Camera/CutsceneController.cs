@@ -59,4 +59,15 @@ public class CutsceneController : MonoBehaviour
     public void SetGameCamera(Action callback = null) {
         SetCameraConfig(gameConfig);
     }
+
+    public void SetEndGameCutscene(Action callback = null) {
+        player.SetMovementLock(true);
+        SetCameraConfig(cliffConfig);
+        StartCoroutine(EndGameRoutine(callback));
+    }
+
+    IEnumerator EndGameRoutine(Action callback = null) {
+        yield return new WaitForSeconds(10f);
+        callback?.Invoke();
+    }
 }
