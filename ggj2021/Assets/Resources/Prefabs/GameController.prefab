@@ -51,7 +51,7 @@ MonoBehaviour:
   _purpleObjects: []
   _redObjects: []
   _blueObjects: []
-  enableTestCase: 1
+  enableTestCase: 0
   keyTests:
   - key: 49
     events:
