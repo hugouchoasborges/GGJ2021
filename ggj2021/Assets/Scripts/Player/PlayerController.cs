@@ -40,6 +40,8 @@ namespace player
             public string walkAnimation;
             public float innerGsBlend;
             public float outerGsBlend;
+            public bool jump;
+            public bool glide;
             [Range(0f, 10f)] public float walkSpeed;
         }
 
@@ -69,7 +71,7 @@ namespace player
             _spineController.PlayAnimation(Settings.idleAnimation);
         }
 
-        private void OnAlmostFalling() 
+        private void OnAlmostFalling()
         {
             _spineController.PlayAnimation("almost_falling");
         }
@@ -134,17 +136,20 @@ namespace player
         {
             speechBubble.Close();
         }
-    
+
         public void SetState(PlayerState state, bool useTransitions = true)
         {
             currentState = state;
             spineController.SetSkin(Settings.skinName);
             spineController.PlayAnimation(_walkBehavior.Walking ? Settings.walkAnimation : Settings.idleAnimation);
             aura.UpdateBlendValues(Settings.innerGsBlend, Settings.outerGsBlend, useTransitions);
+
+            _jumpBehavior.canJump = Settings.jump;
+            _jumpBehavior.canGlide = Settings.glide;
         }
 
 
-        public void PickColorPiece(InteractableObject.ColorType color) 
+        public void PickColorPiece(InteractableObject.ColorType color)
         {
             var index = (int)color;
             colorPieces[index]++;

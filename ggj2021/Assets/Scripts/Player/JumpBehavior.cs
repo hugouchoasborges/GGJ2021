@@ -19,6 +19,9 @@ namespace player
         [SerializeField]
         [Range(0f, 10)] private float _lowJumpMultiplier = 2f;
 
+        public bool canJump = true;
+        public bool canGlide = true;
+
         [Header("Multiple jumps")]
         [SerializeField] int _maxJumps = 2;
         int _jumpCount = 0;
@@ -51,7 +54,7 @@ namespace player
 
         private void JumpInput()
         {
-            if (!controller.MovementInputEnabled)
+            if (!canJump || !controller.MovementInputEnabled)
             {
                 return;
             }
@@ -91,7 +94,7 @@ namespace player
         {
             if (_rigidbody2D.velocity.y < 0) // Falling
             {
-                if (Input.GetButton(_jumpInputKey))
+                if (canGlide && Input.GetButton(_jumpInputKey)) // GLIDE
                     _rigidbody2D.velocity += Vector2.up * Physics2D.gravity.y * (_glideMultiplier - 1) * Time.deltaTime;
                 else
                     _rigidbody2D.velocity += Vector2.up * Physics2D.gravity.y * (_fallMultiplier - 1) * Time.deltaTime;
