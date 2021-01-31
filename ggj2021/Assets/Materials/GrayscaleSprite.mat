@@ -85,4 +85,4 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FillAnchor: {r: 0, g: 0, b: 0, a: 0}
     - _FillPivot: {r: 0, g: 0, b: 0, a: 0}
-    - _GrayscaleCenterPosition: {r: 43.449997, g: 0.239182, b: 0, a: 0}
+    - _GrayscaleCenterPosition: {r: 15.893095, g: -0.56708086, b: 0, a: 0}
