@@ -66,6 +66,10 @@ namespace player
             _jumpBehavior = GetComponent<JumpBehavior>();
             _respawnBehavior = GetComponent<RespawnBehavior>();
             colorPieces = new int[3];
+        }
+
+        private void Start()
+        {
             SetState(PlayerState.Depressed, false);
         }
 
