@@ -177,6 +177,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8beed8ceb94e07e4ca8ed9afddb21eb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heartSpawnOffset: {x: -0.5, y: 0.5, z: 0}
+  heartPiecePrefab: {fileID: 74424488722425808, guid: 0975fae72f70fe04cb9e4d4b3a333e76,
+    type: 3}
   playerCollisionEnabled: 1
   _whatIsPlayer:
     serializedVersion: 2

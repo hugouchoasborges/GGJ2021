@@ -1,6 +1,7 @@
 ﻿using spine;
 using System;
 using System.Net;
+using System.Collections;
 using UnityEngine;
 
 namespace monster
@@ -24,7 +25,11 @@ namespace monster
             new Vector2(0.71f, 0.34f),
         };
 
-        private int _currentPhaseIdx = 0;
+        [Header("Heart Spawn")]
+        [SerializeField] Vector3 heartSpawnOffset;
+        [SerializeField] GameObject heartPiecePrefab;
+
+        private int _currentPhaseId = 0;
 
         [Header("Collision Detection")]
         [SerializeField] private bool playerCollisionEnabled = false;
@@ -73,8 +78,8 @@ namespace monster
 
         private void ConfigCurrentCollider()
         {
-            _boxCollider2D.offset = _colliderOffsets[_currentPhaseIdx];
-            _boxCollider2D.size = _colliderSizes[_currentPhaseIdx];
+            _boxCollider2D.offset = _colliderOffsets[_currentPhaseId];
+            _boxCollider2D.size = _colliderSizes[_currentPhaseId];
         }
 
 
@@ -82,27 +87,40 @@ namespace monster
 
         private void GoToNextPhase()
         {
-            if (_currentPhaseIdx >= _phases.Length - 1)
+            if (_currentPhaseId >= _phases.Length - 1)
                 return;
 
             RunTransitionAnimation();
-            _currentPhaseIdx++;
+            _currentPhaseId++;
             AddIdleAnimation();
+
+            if(_currentPhaseId == 2)
+            {
+                StartCoroutine(SpawnPiece_Routine());
+            }
         }
 
         private void RunTransitionAnimation()
         {
-            _spineController.PlayAnimation(_phases[_currentPhaseIdx] + "_gets_smaller");
+            _spineController.PlayAnimation(_phases[_currentPhaseId] + "_gets_smaller");
         }
 
         private void RunIdleAnimation()
         {
-            _spineController.PlayAnimation(_phases[_currentPhaseIdx] + "_idle");
+            _spineController.PlayAnimation(_phases[_currentPhaseId] + "_idle");
         }
 
         private void AddIdleAnimation()
         {
-            _spineController.AddAnimation(_phases[_currentPhaseIdx] + "_idle");
+            _spineController.AddAnimation(_phases[_currentPhaseId] + "_idle");
+        }
+
+        IEnumerator SpawnPiece_Routine()
+        {
+            yield return new WaitForSeconds(1f);
+            var pos = transform.position + heartSpawnOffset;
+            var piece = Instantiate(heartPiecePrefab, pos, Quaternion.identity).GetComponent<HeartPiece>();
+            yield return piece.Appear(2);
         }
 
     }

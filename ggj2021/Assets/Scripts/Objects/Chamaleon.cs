@@ -23,7 +23,6 @@ public class Chamaleon : InteractableCharacter
     [SerializeField] AnimationCurve jumpHeightCurve;
 
     [Header("Heart Spawn")]
-
     [SerializeField] Vector3 heartSpawnOffset;
     [SerializeField] GameObject heartPiecePrefab;
 
@@ -66,6 +65,7 @@ public class Chamaleon : InteractableCharacter
 
     IEnumerator SpawnPiece_Routine()
     {
+        yield return new WaitForSeconds(1f);
         Interactable = false;
         var pos = player.PlayerController.Instance.transform.position + heartSpawnOffset;
         var piece = Instantiate(heartPiecePrefab, pos, Quaternion.identity).GetComponent<HeartPiece>();

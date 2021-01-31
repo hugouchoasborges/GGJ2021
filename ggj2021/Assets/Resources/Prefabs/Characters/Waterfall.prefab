@@ -1000,11 +1000,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 6737273653521047405, guid: 151c5676f0d03704181cc7368b395258,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.44
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 151c5676f0d03704181cc7368b395258, type: 3}
 --- !u!4 &1284375763 stripped
