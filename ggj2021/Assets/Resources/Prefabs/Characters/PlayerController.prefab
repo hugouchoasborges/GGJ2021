@@ -142,6 +142,36 @@ Transform:
   m_Father: {fileID: 905203181}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -85.44}
+--- !u!1 &1459839973
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1459839974}
+  m_Layer: 11
+  m_Name: CameraFocus
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1459839974
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1459839973}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.5, y: 0.348, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2378040049050410224}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1925759587
 GameObject:
   m_ObjectHideFlags: 0
@@ -481,6 +511,7 @@ Transform:
   - {fileID: 2969156687870992153}
   - {fileID: 1925759588}
   - {fileID: 905203181}
+  - {fileID: 1459839974}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -566,6 +597,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 2378040049050410225}
+  lockMovement: 0
   _jumpImpulse: 5.5
   _glideMultiplier: 0.2
   _fallMultiplier: 2.5

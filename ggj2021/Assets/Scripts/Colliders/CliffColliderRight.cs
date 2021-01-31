@@ -18,7 +18,6 @@ public class CliffColliderRight : MonoBehaviour
     private void OnCliffCallback() {
         GetComponent<Collider2D>().isTrigger = false;
         leftCollider.SetAsTrigger();
-        GameController.Instance.cutsceneController.SetGameCamera();
     }
 
 }

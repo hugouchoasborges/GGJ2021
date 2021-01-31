@@ -49,9 +49,11 @@ public class CutsceneController : MonoBehaviour
     }
 
     IEnumerator CliffRoutine(Action callback = null) {
-        yield return new WaitForSeconds(4f);
-        callback?.Invoke();
+        yield return new WaitForSeconds(6f);
+        SetGameCamera();
+        yield return new WaitForSeconds(3f);
         player.SetMovementLock(false);
+        callback?.Invoke();
     }
 
     public void SetGameCamera(Action callback = null) {
