@@ -16132,21 +16132,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 901232688615823113, guid: b14e620791a5c7d44a9badb76c03364c,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 1847478465066840375, guid: b14e620791a5c7d44a9badb76c03364c,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.701
-      objectReference: {fileID: 0}
-    - target: {fileID: 1847478465066840375, guid: b14e620791a5c7d44a9badb76c03364c,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.25
-      objectReference: {fileID: 0}
     - target: {fileID: 1877042848195294476, guid: b14e620791a5c7d44a9badb76c03364c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -16206,31 +16191,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Chamaleon
-      objectReference: {fileID: 0}
-    - target: {fileID: 5721476340103326851, guid: b14e620791a5c7d44a9badb76c03364c,
-        type: 3}
-      propertyPath: m_SortingLayerID
-      value: 1436411513
-      objectReference: {fileID: 0}
-    - target: {fileID: 5721476340103326851, guid: b14e620791a5c7d44a9badb76c03364c,
-        type: 3}
-      propertyPath: m_SortingLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5721476340103326851, guid: b14e620791a5c7d44a9badb76c03364c,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7089867438270380942, guid: b14e620791a5c7d44a9badb76c03364c,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: -0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7089867438270380942, guid: b14e620791a5c7d44a9badb76c03364c,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 9123363577596754917, guid: b14e620791a5c7d44a9badb76c03364c,
         type: 3}
@@ -21483,6 +21443,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 905203181, guid: a83c6dbe99fabc945924d1a2601a1944, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 905203181, guid: a83c6dbe99fabc945924d1a2601a1944, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.01117897
+      objectReference: {fileID: 0}
     - target: {fileID: 1925759591, guid: a83c6dbe99fabc945924d1a2601a1944, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -21892,9 +21860,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdce4ef5cf7741b4ba90e62f530f5727, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionSprite: {fileID: 0}
-  speechBubble: {fileID: 0}
   glow: {fileID: 5735696707100394235}
+  glowDuration: 0
+  glowCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   objectColor: 0
 --- !u!212 &5735696707859856052
 SpriteRenderer:

@@ -16,7 +16,10 @@ public class Chamaleon : InteractableCharacter
     [SerializeField] string headIdleKey;
     [SerializeField] int sortingOrderOnCrow;
     [SerializeField] float jumpDuration;
+    [SerializeField] Vector3 postJumpScale;
     [SerializeField] AnimationCurve jumpCurve;
+    [SerializeField] float jumpHeight;
+    [SerializeField] AnimationCurve jumpHeightCurve;
 
     bool talkedTo;
 
@@ -31,14 +34,16 @@ public class Chamaleon : InteractableCharacter
         spine.AnimationState.AddAnimation(0, jumpAnimations[1], true, 0f);
 
         var startPos = transform.position;
+        var startScale = transform.localScale;
         yield return StartCoroutine(CoroutineUtility.CurveRoutine(jumpDuration, jumpCurve, (t, v) =>
         {
-            transform.position = Vector3.Lerp(startPos, pivot.position, v);
+            transform.position = Vector3.Lerp(startPos, pivot.position, v) + (Vector3.up * jumpHeight * jumpHeightCurve.Evaluate(t));
+            transform.localScale = Vector3.Lerp(startScale, postJumpScale, v);
         }));
 
         spine.AnimationState.SetAnimation(0, headIdleKey, true);
         transform.SetParent(pivot);
-        transform.localScale = new Vector3(-1, 1, 1);
+        if(transform.position.x > startPos.x) transform.localScale = postJumpScale;
         onEnd?.Invoke();
     }
 
