@@ -58,4 +58,7 @@ MonoBehaviour:
     volume: 0.05
   - name: crowlie_secondforest
     audioClip: {fileID: 8300000, guid: 794c851f4c804384694989db43f52348, type: 3}
-    volume: 0.8
+    volume: 0.3
+  - name: crowlie_thirdforest
+    audioClip: {fileID: 8300000, guid: 03a0f22db5b475e4c907fd4e7c398529, type: 3}
+    volume: 0.3
