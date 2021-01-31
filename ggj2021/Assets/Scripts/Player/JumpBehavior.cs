@@ -10,6 +10,7 @@ namespace player
     public class JumpBehavior : PlayerModule
     {
         [Header("Jump controls")]
+        public bool lockMovement = false;
         [SerializeField]
         [Range(1f, 10)] private float _jumpImpulse = 5f;
         public float JumpImpulse
@@ -113,8 +114,10 @@ namespace player
 
         private void Update()
         {
-            JumpInput();
-            BetterJumpModifier();
+            if (!lockMovement) {
+                JumpInput();
+                BetterJumpModifier();
+            }
         }
 
         private void OnGrounded()

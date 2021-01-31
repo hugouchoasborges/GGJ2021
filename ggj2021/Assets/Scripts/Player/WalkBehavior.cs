@@ -11,6 +11,7 @@ namespace player
         [Header("Walk controls")]
         [SerializeField]
         [Range(0f, 1f)] private float deadZone = 0.1f;
+        public bool lockMovement = false;
 
         [Header("Input Keys (string)")]
         [SerializeField] private string _horizontalInputKey = "Horizontal";
@@ -117,7 +118,7 @@ namespace player
 
         private void Update()
         {
-            WalkInput();
+            if(!lockMovement) WalkInput();
             GroundWalkingCheck();
         }
     }

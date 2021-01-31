@@ -2,6 +2,7 @@
 using sound;
 using UnityEngine;
 using UnityEngine.Events;
+using camera;
 
 namespace ui
 {
@@ -11,6 +12,8 @@ namespace ui
         [Header("Components")]
         public PlayerController playerController;
         public UIController uiController;
+        public CameraController camController;
+        public CutsceneController cutsceneController;
 
         private void Start()
         {

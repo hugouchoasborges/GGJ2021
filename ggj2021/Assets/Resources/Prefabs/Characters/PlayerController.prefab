@@ -54,7 +54,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 905203180}
-  m_LocalRotation: {x: -0, y: 0, z: 0.67841613, w: 0.73467785}
+  m_LocalRotation: {x: -0, y: -0, z: 0.67841613, w: 0.73467785}
   m_LocalPosition: {x: -0.011178589, y: 0.36335865, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -158,7 +158,7 @@ GameObject:
   - component: {fileID: 1925759592}
   m_Layer: 11
   m_Name: PlayerSpine
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -461,7 +461,7 @@ GameObject:
   - component: {fileID: 8717738983576848980}
   m_Layer: 11
   m_Name: PlayerController
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -475,7 +475,7 @@ Transform:
   m_GameObject: {fileID: 2378040049050410188}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.7733145, y: -1.190818, z: 0}
-  m_LocalScale: {x: -5, y: 5, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children:
   - {fileID: 2378040048511980890}
   - {fileID: 2969156687870992153}
@@ -549,6 +549,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 2378040049050410225}
   deadZone: 0.1
+  lockMovement: 0
   _horizontalInputKey: Horizontal
   _verticalInputKey: Vertical
   _groundChecker: {fileID: 2378040048511980892}

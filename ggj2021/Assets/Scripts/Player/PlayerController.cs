@@ -85,6 +85,11 @@ namespace player
             _spineController.PlayAnimation("almost_falling");
         }
 
+        public void SetMovementLock(bool state) {
+            _walkBehavior.lockMovement = state;
+            _jumpBehavior.lockMovement = state;
+        }
+
         // ========================== Jump Events ============================
 
         private void OnJump()
