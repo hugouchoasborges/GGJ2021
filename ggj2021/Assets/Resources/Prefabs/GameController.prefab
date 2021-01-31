@@ -44,6 +44,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 0}
+  uiController: {fileID: 0}
+  camController: {fileID: 0}
+  cutsceneController: {fileID: 0}
+  defaultMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  _purpleObjects: []
+  _redObjects: []
+  _blueObjects: []
   enableTestCase: 1
   keyTests:
   - key: 49

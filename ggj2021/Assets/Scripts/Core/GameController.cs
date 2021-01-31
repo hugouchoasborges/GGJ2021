@@ -15,6 +15,12 @@ namespace ui
         public CameraController camController;
         public CutsceneController cutsceneController;
 
+        [Header("Colored Objects")]
+        public Material defaultMaterial;
+        [SerializeField] private SpriteRenderer[] _purpleObjects;
+        [SerializeField] private SpriteRenderer[] _redObjects;
+        [SerializeField] private SpriteRenderer[] _blueObjects;
+
         private void Start()
         {
             ConfigureGame();
@@ -52,6 +58,22 @@ namespace ui
             System.Enum.TryParse(state, out PlayerController.PlayerState playerState);
             SetPlayerState(playerState);
         }
+
+
+        // ========================== Remove GrayScale ============================
+
+        private void RemoveGrayScale(SpriteRenderer[] spriteRendererList)
+        {
+            foreach (var item in spriteRendererList)
+            {
+                item.material = defaultMaterial;
+            }
+        }
+
+        public void RemoveGrayScalePurple() => RemoveGrayScale(_purpleObjects);
+        public void RemoveGrayScaleRed() => RemoveGrayScale(_redObjects);
+        public void RemoveGrayScaleBlue() => RemoveGrayScale(_blueObjects);
+
 
         // ----------------------------------------------------------------------------------
         // ========================== Development Test Cases ============================
