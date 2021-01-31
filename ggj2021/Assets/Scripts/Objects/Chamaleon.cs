@@ -10,6 +10,7 @@ public class Chamaleon : InteractableCharacter
     [SerializeField] Sprite interactionSprite;
     [SerializeField] SpeechBubble speechBubble;
     [SerializeField] InteractableObject.ColorType requiredColor;
+    [SerializeField] float speechStayTime = 2.5f;
 
     [Header("Jump to Crow")]
     [SerializeField] string[] jumpAnimations;
@@ -72,6 +73,15 @@ public class Chamaleon : InteractableCharacter
         yield return piece.Appear(1);
     }
 
+    IEnumerator SpeachBubble_Routine(System.Action onEnd)
+    {
+        speechBubble.Open(interactionSprite);
+        yield return new WaitForSeconds(speechStayTime);
+
+        speechBubble.Close();
+        onEnd?.Invoke();
+    }
+
     public override bool StartInteraction(System.Action restoreInput)
     {
         if(player.PlayerController.Instance.collectedColors.Contains(InteractableObject.ColorType.PURPLE))
@@ -80,9 +90,8 @@ public class Chamaleon : InteractableCharacter
             return false;
         }
 
-        speechBubble.Open(interactionSprite);
-        restoreInput?.Invoke();
-        return true;
+        StartCoroutine(SpeachBubble_Routine(restoreInput));
+        return false;
     }
     public override bool Interact(System.Action restoreInput)
     {

@@ -17,7 +17,7 @@ public class InteractionBehaviour : MonoBehaviour
 
     public bool inputEnabled;
 
-    public bool UsingInput => inputEnabled && interactableCharacter != null;
+    public bool UsingInput => !inputEnabled || interactableCharacter != null;
 
     Vector3 Offset
     {

@@ -166,8 +166,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _canvas: {fileID: 0}
   background: {fileID: 0}
+  audioListener: {fileID: 0}
+  toDisable: []
   menuSound: crowlie_firstforest
-  playScene: MainScene
 --- !u!1 &99186602
 GameObject:
   m_ObjectHideFlags: 0

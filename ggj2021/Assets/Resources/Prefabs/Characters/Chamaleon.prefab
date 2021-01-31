@@ -168,6 +168,7 @@ MonoBehaviour:
   interactionSprite: {fileID: 21300000, guid: 72ba73270d5c3d74297ee37f5f43bc66, type: 3}
   speechBubble: {fileID: 1744556367551334293}
   requiredColor: 0
+  speechStayTime: 2
   jumpAnimations:
   - jumping
   - jumping2
