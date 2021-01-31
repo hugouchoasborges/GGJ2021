@@ -3,6 +3,7 @@ using ui;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using sound;
 
 namespace player
 {
@@ -35,6 +36,9 @@ namespace player
         public struct StateSettings
         {
             public PlayerState state;
+
+            [Header("Sound")]
+            public string soundName;
 
             [Header("Animations")]
             public string skinName;
@@ -172,11 +176,17 @@ namespace player
         }
         public void AdvanceState()
         {
-            if(currentState == PlayerState.Happy)
+            if (currentState == PlayerState.Happy)
             {
                 Debug.Log("YOU BEAT THE GAME!!!");
                 return;
             }
+
+            SoundController.FadeOut(Settings.soundName, duration: 1.0f, callback: () =>
+            {
+                SoundController.FadeIn(Settings.soundName, duration: 1.0f); ;
+                SoundController.Play(Settings.soundName, true);
+            });
 
             SetState(currentState + 1);
         }
