@@ -126,7 +126,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1877042848195294476}
-  - component: {fileID: 7303501522294416620}
+  - component: {fileID: 2816599196775083929}
   m_Layer: 0
   m_Name: Chamaleon
   m_TagString: Untagged
@@ -151,7 +151,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7303501522294416620
+--- !u!114 &2816599196775083929
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -160,12 +160,45 @@ MonoBehaviour:
   m_GameObject: {fileID: 3388866795341056081}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85315e1e0c35886449d76309103bb100, type: 3}
+  m_Script: {fileID: 11500000, guid: d2335852358cc3f4c9459c5085576878, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spine: {fileID: 8158333407339585491}
+  render: {fileID: 5721476340103326851}
   interactionSprite: {fileID: -1592579644510188425, guid: 8dc505720ecdc8340b96f52aa0550b5c,
     type: 3}
   speechBubble: {fileID: 1744556367551334293}
+  jumpAnimations:
+  - jumping
+  - jumping2
+  idleKey: happy_idle
+  headIdleKey: happy_idle_COLORS
+  sortingOrderOnCrow: 6
+  jumpDuration: 0.75
+  jumpCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &1526626296320236080
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -264,7 +297,7 @@ PrefabInstance:
         type: 3}
       propertyPath: character
       value: 
-      objectReference: {fileID: 7303501522294416620}
+      objectReference: {fileID: 2816599196775083929}
     - target: {fileID: 2735443871816709776, guid: 23e57b1fc98fd724bbd6943ea8758dba,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -13,6 +13,8 @@ public class InteractionLink : MonoBehaviour
 
     Coroutine fadeRoutine;
 
+    public bool Interactable => character ? character.Interactable : false;
+
     private void Start()
     {
         inputImage.color = new Color(1, 1, 1, 0);

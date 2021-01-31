@@ -15,6 +15,10 @@ public class InteractionBehaviour : MonoBehaviour
     [SerializeField] InteractionLink interactionLink;
     public InteractableCharacter interactableCharacter;
 
+    public bool inputEnabled;
+
+    public bool UsingInput => inputEnabled && interactableCharacter != null;
+
     Vector3 Offset
     {
         get
@@ -22,6 +26,11 @@ public class InteractionBehaviour : MonoBehaviour
             var dir = walkBehavior.IsFacingRight ? 1 : -1;
             return new Vector3(offset.x * dir, offset.y, offset.z);
         }
+    }
+
+    private void Start()
+    {
+        inputEnabled = true;
     }
 
     // Update is called once per frame
@@ -37,7 +46,7 @@ public class InteractionBehaviour : MonoBehaviour
                 {
                     if (interactionLink) interactionLink.TriggerFeedback(false);
                     interactionLink = closest.GetComponent<InteractionLink>();
-                    if (interactionLink) interactionLink.TriggerFeedback(true);
+                    if (interactionLink && interactionLink.Interactable) interactionLink.TriggerFeedback(true);
                 }
                 interactable = closest;
             }
@@ -48,22 +57,29 @@ public class InteractionBehaviour : MonoBehaviour
                 interactionLink = null;
             }
 
-            if(Input.GetKeyDown(KeyCode.E) && interactionLink != null)
+            if(Input.GetKeyDown(KeyCode.E) && interactionLink != null && interactionLink.Interactable)
             {
-                interactableCharacter = (InteractableCharacter)interactionLink.character;
-                interactableCharacter.StartInteraction();
+                inputEnabled = false;
+                interactableCharacter = interactionLink.character;
+                var hasSequence = interactableCharacter.StartInteraction(() => inputEnabled = true);
                 interactionLink.TriggerFeedback(false);
+                
+                if(!hasSequence)
+                {
+                    interactableCharacter = null;
+                }
             }
         }
         else
         {
             if(Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space))
             {
-                var endedInteraction = interactableCharacter.Interact();
+                inputEnabled = false;
+                var endedInteraction = interactableCharacter.Interact(() => inputEnabled = true);
                 if (endedInteraction)
                 {
+                    if(interactableCharacter.Interactable) interactionLink.TriggerFeedback(true, 1f);
                     interactableCharacter = null;
-                    interactionLink.TriggerFeedback(true, 1f);
                 }
             }
         }

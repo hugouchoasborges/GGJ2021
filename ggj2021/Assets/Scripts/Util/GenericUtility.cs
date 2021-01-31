@@ -224,4 +224,11 @@ public static class GenericUtility
     {
         return !string.IsNullOrEmpty(key) && dict != null && dict.ContainsKey(key) ? dict[key] : null;
     }
+
+    public static void SetAlpha(this SpriteRenderer r, float alpha)
+    {
+        var c = r.color;
+        c.a = alpha;
+        r.color = c;
+    }
 }

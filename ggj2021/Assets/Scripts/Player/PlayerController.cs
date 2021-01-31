@@ -6,7 +6,7 @@ using UnityEngine;
 namespace player
 {
     [RequireComponent(typeof(WalkBehavior))]
-    public class PlayerController : MonoBehaviour
+    public class PlayerController : ReferenceSingleton<PlayerController>
     {
         private WalkBehavior _walkBehavior;
         private JumpBehavior _jumpBehavior;
@@ -38,7 +38,7 @@ namespace player
         }
 
         public SpineController spineController => _spineController;
-        public bool MovementInputEnabled => interaction.interactableCharacter == null;
+        public bool MovementInputEnabled => !interaction.UsingInput;
         public StateSettings Settings => stateSettings[(int)currentState];
 
         private void Awake()

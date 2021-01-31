@@ -13,6 +13,8 @@ namespace spine
         private SkeletonAnimation _skeleton;
         private string _currentSkin;
 
+        public Transform[] attachmentPivots;
+
         private void Awake()
         {
             _skeleton = GetComponent<SkeletonAnimation>();
@@ -52,7 +54,7 @@ namespace spine
             GameDebug.Log($"Skin Selected: {name}", util.LogType.Spine);
 
             _skeleton.skeleton.SetSkin(name);
-            _skeleton.ClearState();
+            //_skeleton.ClearState();
         }
     }
 }

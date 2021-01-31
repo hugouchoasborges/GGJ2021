@@ -4,20 +4,35 @@ using UnityEngine;
 
 public class InteractableCharacter : MonoBehaviour
 {
-    [SerializeField] Sprite interactionSprite;
-    [SerializeField] SpeechBubble speechBubble;
-
+    public bool Interactable { get; protected set; }
     public bool Interacting { get; protected set; }
 
-    public virtual void StartInteraction()
+    protected virtual void Awake()
+    {
+        Interactable = true;
+    }
+
+    /// <summary>
+    /// Triggers first interaction with character, returns true if it is continued
+    /// </summary>
+    /// <param name="restoreInput"></param>
+    /// <returns></returns>
+    public virtual bool StartInteraction(System.Action restoreInput)
     {
         Interacting = true;
-        speechBubble.Open(interactionSprite);
+        restoreInput?.Invoke();
+        return true;
     }
-    public virtual bool Interact()
+
+    /// <summary>
+    /// Triggers interaction with character, returns true if it is not continued
+    /// </summary>
+    /// <param name="restoreInput"></param>
+    /// <returns></returns>
+    public virtual bool Interact(System.Action restoreInput)
     {
-        speechBubble.Close();
         Interacting = false;
+        restoreInput?.Invoke();
         return true;
     }
 }
