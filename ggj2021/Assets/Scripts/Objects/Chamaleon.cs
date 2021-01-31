@@ -46,6 +46,9 @@ public class Chamaleon : InteractableCharacter
         spine.AnimationState.SetAnimation(0, headIdleKey, true);
         transform.SetParent(pivot);
         if(transform.position.x > startPos.x) transform.localScale = postJumpScale;
+
+        player.PlayerController.Instance.SetState(player.PlayerController.PlayerState.Happy);
+        
         onEnd?.Invoke();
     }
 
