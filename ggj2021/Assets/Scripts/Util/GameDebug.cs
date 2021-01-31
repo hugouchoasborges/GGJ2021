@@ -20,6 +20,9 @@ namespace util
 
         private static void InternalLog(string message, Action<string> logCallback, LogType logType = LogType.None)
         {
+            if (Instance == null)
+                return;
+
             if (!LogTypeEnabled(logType)) return;
 
             if (logType != LogType.None)

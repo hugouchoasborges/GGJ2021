@@ -52,11 +52,17 @@ namespace sound
 
         // ========================== Methods ============================
 
-        public static void Play(string audioName, bool loop = false)
+        public static void Play(string audioName, bool loop = false, bool canRestart = true)
         {
             if (!Instance._audioSources.ContainsKey(audioName))
             {
                 GameDebug.LogWarning($"Audio {audioName} not found!!!", util.LogType.Audio);
+                return;
+            }
+
+            if (Instance._audioSources[audioName].isPlaying)
+            {
+                GameDebug.Log($"Audio {audioName} is already playing!!!", util.LogType.Audio);
                 return;
             }
 

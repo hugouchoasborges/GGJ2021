@@ -32,7 +32,7 @@ namespace ui
         private void Init()
         {
             // InitBGAudio
-            SoundController.Play("crowlie_firstforest", true);
+            SoundController.Play("crowlie_firstforest", true, false);
         }
 
 
