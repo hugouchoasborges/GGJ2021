@@ -7,23 +7,23 @@ public class UICollectedColor : MonoBehaviour
 {
     [SerializeField] private Sprite emptySprite;
     [SerializeField] private Sprite colorSprite;
-    private Image img;
+    [SerializeField] float fillDuration;
+    [SerializeField] AnimationCurve fillCurve;
 
-    public int _collected = 0;
-    public int _maxParts = 4;
+    [Header("Runtime")]
+    [SerializeField] private Image img;
 
-
-    private void Awake() {
-        img = GetComponent<Image>();
-        RefreshImage();
+    private void Awake() 
+    {
+        img = transform.GetChild(0).GetComponent<Image>();
+        img.fillAmount = 0f;
     }
 
-    public void Collect() {
-        _collected++;
-        RefreshImage();
-    }
-
-    public void RefreshImage() {
-        img.fillAmount = _collected / (float)_maxParts;
+    public void RefreshImage(int collected, int maxParts) 
+    {
+        var start = img.fillAmount;
+        var target = collected / (float) maxParts;
+        var duration = fillDuration * Mathf.Abs(target - start);
+        StartCoroutine(CoroutineUtility.CurveRoutine(duration, fillCurve, (t, v) => img.fillAmount = Mathf.Lerp(start, target, v)));
     }
 }

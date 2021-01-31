@@ -77,9 +77,9 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1436411513
-  m_SortingLayer: 1
-  m_SortingOrder: 5
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 6
 --- !u!114 &8158333407339585491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,8 +165,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spine: {fileID: 8158333407339585491}
   render: {fileID: 5721476340103326851}
-  interactionSprite: {fileID: -1592579644510188425, guid: 8dc505720ecdc8340b96f52aa0550b5c,
-    type: 3}
+  interactionSprite: {fileID: 21300000, guid: 72ba73270d5c3d74297ee37f5f43bc66, type: 3}
   speechBubble: {fileID: 1744556367551334293}
   jumpAnimations:
   - jumping

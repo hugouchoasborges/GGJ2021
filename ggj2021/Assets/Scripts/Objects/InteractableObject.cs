@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using ui;
 
 public class InteractableObject : InteractableCharacter
 {
@@ -23,9 +22,9 @@ public class InteractableObject : InteractableCharacter
 
         yield return new WaitForSeconds(1f);
         player.PlayerController.Instance.SetState(player.PlayerController.PlayerState.Neutral);
+        player.PlayerController.Instance.PickColorPiece(objectColor);
         yield return new WaitForSeconds(1f);
 
-        GameController.Instance.uiController.PickUpObject(objectColor);
         yield return StartCoroutine(CoroutineUtility.CurveRoutine(glowDuration, glowCurve, (t, v) => glow.SetAlpha(1f - v)));
 
         onEnd?.Invoke();

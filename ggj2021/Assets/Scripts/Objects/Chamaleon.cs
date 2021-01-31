@@ -9,6 +9,7 @@ public class Chamaleon : InteractableCharacter
     [SerializeField] Renderer render;
     [SerializeField] Sprite interactionSprite;
     [SerializeField] SpeechBubble speechBubble;
+    [SerializeField] InteractableObject.ColorType requiredColor;
 
     [Header("Jump to Crow")]
     [SerializeField] string[] jumpAnimations;
@@ -21,24 +22,25 @@ public class Chamaleon : InteractableCharacter
     [SerializeField] float jumpHeight;
     [SerializeField] AnimationCurve jumpHeightCurve;
 
-    bool talkedTo;
-
     IEnumerator JumpToPlayer_Routine(System.Action onEnd)
     {
+        var pivot = player.PlayerController.Instance.GetComponentInChildren<spine.SpineController>().attachmentPivots[0];
+        spine.AnimationState.SetAnimation(0, idleKey, true);
         render.sortingOrder = sortingOrderOnCrow;
 
-        var pivot = player.PlayerController.Instance.GetComponentInChildren<spine.SpineController>().attachmentPivots[0];
-        yield return new WaitForEndOfFrame();
+        yield return new WaitForSeconds(0.65f);
 
         spine.AnimationState.SetAnimation(0, jumpAnimations[0], false);
         spine.AnimationState.AddAnimation(0, jumpAnimations[1], true, 0f);
 
         var startPos = transform.position;
         var startScale = transform.localScale;
+        bool switched = false;
         yield return StartCoroutine(CoroutineUtility.CurveRoutine(jumpDuration, jumpCurve, (t, v) =>
         {
             transform.position = Vector3.Lerp(startPos, pivot.position, v) + (Vector3.up * jumpHeight * jumpHeightCurve.Evaluate(t));
             transform.localScale = Vector3.Lerp(startScale, postJumpScale, v);
+            if (!switched && t > 0.5f) render.sortingLayerName = "Default";
         }));
 
         spine.AnimationState.SetAnimation(0, headIdleKey, true);
@@ -49,20 +51,18 @@ public class Chamaleon : InteractableCharacter
 
     public override bool StartInteraction(System.Action restoreInput)
     {
-        if(!talkedTo)
+        if(player.PlayerController.Instance.collectedColors.Contains(InteractableObject.ColorType.PURPLE))
         {
-            speechBubble.Open(interactionSprite);
-            restoreInput?.Invoke();
-            return true;
+            StartCoroutine(JumpToPlayer_Routine(restoreInput));
+            return false;
         }
 
-        StartCoroutine(JumpToPlayer_Routine(restoreInput));
-        return false;
+        speechBubble.Open(interactionSprite);
+        restoreInput?.Invoke();
+        return true;
     }
     public override bool Interact(System.Action restoreInput)
     {
-        spine.AnimationState.SetAnimation(0, idleKey, true);
-        talkedTo = true;
         speechBubble.Close();
         return base.Interact(restoreInput);
     }

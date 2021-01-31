@@ -55,7 +55,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 905203180}
   m_LocalRotation: {x: -0, y: 0, z: 0.67841613, w: 0.73467785}
-  m_LocalPosition: {x: -0.01117897, y: 0.36335865, z: 0}
+  m_LocalPosition: {x: -0.011178923, y: 0.36335865, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1397925326}
@@ -498,24 +498,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spineController: {fileID: 1925759593}
   interaction: {fileID: 8717738983576848980}
+  aura: {fileID: 9047640375960954373}
   speechBubble: {fileID: 4431729885360623493}
   stateSettings:
   - state: 0
     skinName: sad
     idleAnimation: idle_depressed
     walkAnimation: walk_depressed
+    innerGsBlend: 0.5
+    outerGsBlend: 1
     walkSpeed: 0.5
   - state: 1
     skinName: neutral
     idleAnimation: idle
     walkAnimation: walk
-    walkSpeed: 2
+    innerGsBlend: 0.35
+    outerGsBlend: 0.65
+    walkSpeed: 1.5
   - state: 2
     skinName: happy
     idleAnimation: idle
     walkAnimation: walk
-    walkSpeed: 2
+    innerGsBlend: 0
+    outerGsBlend: 0.15
+    walkSpeed: 1.5
+  colorPieceTotals: 010000000100000001000000
   currentState: 0
+  colorPieces: 
+  collectedColors: 
 --- !u!114 &2378040049050410226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -604,6 +614,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: 281e54e010ea0d342a2713671e563d0c, type: 2}
   offset: {x: 0, y: 1.43, z: 0}
+  fadeDuration: 3
+  fadeCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &8717738983576848980
 MonoBehaviour:
   m_ObjectHideFlags: 0

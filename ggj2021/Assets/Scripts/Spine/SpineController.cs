@@ -30,8 +30,6 @@ namespace spine
             if (useSkinPrefix && !string.IsNullOrEmpty(_currentSkin))
                 animationName = $"{_currentSkin}_{animationName}";
 
-            GameDebug.Log($"Add Animation to sequence: {animationName}", util.LogType.Spine);
-
             _skeleton.state.AddAnimation(0, animationName, loop, delay);
         }
 
@@ -41,8 +39,6 @@ namespace spine
             if (useSkinPrefix && !string.IsNullOrEmpty(_currentSkin))
                 animationName = $"{_currentSkin}_{animationName}";
 
-            GameDebug.Log($"Started Animation: {animationName}", util.LogType.Spine);
-
             _skeleton.state.SetAnimation(0, animationName, loop);
         }
 
@@ -51,7 +47,7 @@ namespace spine
 
         public void SetSkin(string name)
         {
-            GameDebug.Log($"Skin Selected: {name}", util.LogType.Spine);
+            //GameDebug.Log($"Skin Selected: {name}", util.LogType.Spine);
 
             _skeleton.skeleton.SetSkin(name);
             //_skeleton.ClearState();
