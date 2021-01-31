@@ -54,7 +54,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 905203180}
-  m_LocalRotation: {x: -0, y: -0, z: 0.67841613, w: 0.73467785}
+  m_LocalRotation: {x: -0, y: 0, z: 0.67841613, w: 0.73467785}
   m_LocalPosition: {x: -0.011178589, y: 0.36335865, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -507,7 +507,8 @@ MonoBehaviour:
     walkAnimation: walk_depressed
     innerGsBlend: 0.75
     outerGsBlend: 1
-    jump: 0
+    jumpImpulse: 3
+    jump: 1
     glide: 0
     walkSpeed: 1
   - state: 1
@@ -516,6 +517,7 @@ MonoBehaviour:
     walkAnimation: walk
     innerGsBlend: 0.5
     outerGsBlend: 0.75
+    jumpImpulse: 5
     jump: 1
     glide: 0
     walkSpeed: 2
@@ -525,6 +527,7 @@ MonoBehaviour:
     walkAnimation: walk
     innerGsBlend: 0
     outerGsBlend: 0.25
+    jumpImpulse: 5
     jump: 1
     glide: 1
     walkSpeed: 2

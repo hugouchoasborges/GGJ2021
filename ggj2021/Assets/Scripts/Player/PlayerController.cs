@@ -35,13 +35,22 @@ namespace player
         public struct StateSettings
         {
             public PlayerState state;
+
+            [Header("Animations")]
             public string skinName;
             public string idleAnimation;
             public string walkAnimation;
+
+            [Header("Blend")]
             public float innerGsBlend;
             public float outerGsBlend;
+
+            [Header("Jump")]
+            [Range(1f, 10)] public float jumpImpulse;
             public bool jump;
             public bool glide;
+
+            [Header("Walk")]
             [Range(0f, 10f)] public float walkSpeed;
         }
 
@@ -146,6 +155,7 @@ namespace player
 
             _jumpBehavior.canJump = Settings.jump;
             _jumpBehavior.canGlide = Settings.glide;
+            _jumpBehavior.JumpImpulse = Settings.jumpImpulse;
         }
 
 

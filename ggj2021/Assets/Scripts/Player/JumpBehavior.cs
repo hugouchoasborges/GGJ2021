@@ -12,6 +12,12 @@ namespace player
         [Header("Jump controls")]
         [SerializeField]
         [Range(1f, 10)] private float _jumpImpulse = 5f;
+        public float JumpImpulse
+        {
+            get => _jumpImpulse;
+            set => _jumpImpulse = value;
+        }
+
         [SerializeField]
         [Range(0f, 1)] private float _glideMultiplier = 0.5f;
         [SerializeField]
