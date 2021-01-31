@@ -8,6 +8,6 @@ public class ParalaxBackground : MonoBehaviour
 
     public void UpdateMovement(Vector3 cameraDelta)
     {
-        transform.position -= new Vector3(cameraDelta.x * movementMultiplier, 0, 0);
+        transform.position += new Vector3(cameraDelta.x * movementMultiplier * 0.1f, 0, 0);
     }
 }

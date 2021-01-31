@@ -13,19 +13,22 @@ public class InteractableObject : InteractableCharacter
 
     private void Start()
     {
-        glow.SetAlpha(0f);
+        if(glow) glow.SetAlpha(0f);
     }
 
     IEnumerator Glow_Routine(System.Action onEnd)
     {
-        yield return StartCoroutine(CoroutineUtility.CurveRoutine(glowDuration, glowCurve, (t, v) => glow.SetAlpha(v)));
+        if (glow)
+        {
+            yield return StartCoroutine(CoroutineUtility.CurveRoutine(glowDuration, glowCurve, (t, v) => glow.SetAlpha(v)));
+            yield return new WaitForSeconds(1f);
+        }
 
-        yield return new WaitForSeconds(1f);
         player.PlayerController.Instance.SetState(player.PlayerController.PlayerState.Neutral);
         player.PlayerController.Instance.PickColorPiece(objectColor);
         yield return new WaitForSeconds(1f);
 
-        yield return StartCoroutine(CoroutineUtility.CurveRoutine(glowDuration, glowCurve, (t, v) => glow.SetAlpha(1f - v)));
+        if(glow) yield return StartCoroutine(CoroutineUtility.CurveRoutine(glowDuration, glowCurve, (t, v) => glow.SetAlpha(1f - v)));
 
         onEnd?.Invoke();
     }

@@ -68,11 +68,11 @@ Material:
     - _GrayscaleBlend: 0
     - _GrayscaleCenterRadius: 0.5
     - _GrayscaleRadius: 2.56
-    - _InnerGrayscaleBlend: 0.5
+    - _InnerGrayscaleBlend: 0.75
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
-    - _OuterGrayscaleBlend: 0.7
+    - _OuterGrayscaleBlend: 1
     - _Parallax: 0.02
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -85,4 +85,4 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FillAnchor: {r: 0, g: 0, b: 0, a: 0}
     - _FillPivot: {r: 0, g: 0, b: 0, a: 0}
-    - _GrayscaleCenterPosition: {r: 43.449997, g: -1.07, b: 0, a: 0}
+    - _GrayscaleCenterPosition: {r: 51.93327, g: -0.20312166, b: 0, a: 0}

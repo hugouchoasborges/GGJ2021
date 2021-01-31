@@ -27,6 +27,8 @@ namespace camera
 
             cam = GetComponent<Camera>();
             initialZoomSize = targetZoom = cam.orthographicSize;
+
+            backgrounds = FindObjectsOfType<ParalaxBackground>();
         }
 
         void FixedUpdate()
