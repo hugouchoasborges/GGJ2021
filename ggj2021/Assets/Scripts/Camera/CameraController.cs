@@ -10,6 +10,7 @@ namespace camera
         [SerializeField] private Transform follow;
         [SerializeField] private float velocity;
         [SerializeField] ParalaxBackground[] backgrounds;
+        [SerializeField] bool lockY = true;
         private Camera cam;
 
         private Vector3 initialOffset;
@@ -47,6 +48,7 @@ namespace camera
                 backgrounds[i].UpdateMovement(delta);
             }
 
+            if (lockY) delta = new Vector3(delta.x, 0, 0);
             transform.position += delta;
         }
 
