@@ -10,7 +10,7 @@ using util;
 namespace sound
 {
     [RequireComponent(typeof(AudioListener))]
-    public class SoundController : MonoBehaviour
+    public class SoundController : Singleton<SoundController>
     {
         [SerializeField]
         private AudioEntry[] _audioEntries;
@@ -18,7 +18,6 @@ namespace sound
 
         private void Awake()
         {
-            SoundController.instance = this;
             InitAudioSources();
         }
 
@@ -84,22 +83,6 @@ namespace sound
 
             Instance._audioSources[audioName].Stop();
         }
-
-        // ========================== Singleton ============================
-
-        private static SoundController instance;
-        public static SoundController Instance
-        {
-            get
-            {
-                if (instance == null)
-                {
-                    instance = new GameObject(nameof(SoundController)).AddComponent<SoundController>();
-                }
-                return instance;
-            }
-        }
-
 
         // ========================== OnValidate - Inspector usability ============================
         private void OnValidate()

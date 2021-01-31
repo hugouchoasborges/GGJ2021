@@ -481,6 +481,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &569302941 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2641476858396466854, guid: 9c611148fcb43054cbdb5aba0305fafc,
+    type: 3}
+  m_PrefabInstance: {fileID: 655716342}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &602405447
 GameObject:
   m_ObjectHideFlags: 0
@@ -693,6 +699,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7889c6a9ddf68746abb2adf80b79f36, type: 3}
+--- !u!81 &801852316 stripped
+AudioListener:
+  m_CorrespondingSourceObject: {fileID: 4765049447390353359, guid: d7889c6a9ddf68746abb2adf80b79f36,
+    type: 3}
+  m_PrefabInstance: {fileID: 801852313}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &838924232
 GameObject:
   m_ObjectHideFlags: 0
@@ -833,8 +845,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _canvas: {fileID: 1515254012}
   background: {fileID: 483522995}
+  audioListener: {fileID: 801852316}
+  toDisable:
+  - {fileID: 569302941}
+  - {fileID: 1855535818}
+  - {fileID: 88816429}
   menuSound: crowlie_firstforest
-  playScene: MainScene
 --- !u!4 &1161076805
 Transform:
   m_ObjectHideFlags: 0
@@ -948,6 +964,12 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1855535818 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8530588498321391202, guid: edf1cb718530e314182fddcbf4383759,
+    type: 3}
+  m_PrefabInstance: {fileID: 858516104}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1871708388
 GameObject:
   m_ObjectHideFlags: 0
@@ -1377,6 +1399,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Console
+      objectReference: {fileID: 0}
+    - target: {fileID: 1240639018984951483, guid: 9ae099bd108450141bb7e861d4424897,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ae099bd108450141bb7e861d4424897, type: 3}

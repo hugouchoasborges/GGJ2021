@@ -15,9 +15,11 @@ namespace ui
     {
         [SerializeField] private Canvas _canvas;
         [SerializeField] private SpriteRenderer background;
+        [SerializeField] private AudioListener audioListener;
+
+        [SerializeField] private GameObject[] toDisable;
 
         [SerializeField] private string menuSound = "crowlie_firstforest";
-        [SerializeField] private string playScene = "MainScene";
 
         // ----------------------------------------------------------------------------------
         // ========================== START ============================
@@ -43,17 +45,29 @@ namespace ui
             SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
         }
 
+        private void LoadScene(int sceneIndex)
+        {
+            GameDebug.Log($"Load Scene of Index: {sceneIndex}", util.LogType.Scene);
+            SceneManager.LoadScene(sceneIndex, LoadSceneMode.Additive);
+        }
+
         // called second
         private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
             GameDebug.Log("OnSceneLoaded: " + scene.name, util.LogType.Scene);
 
             // Play Scene loaded
-            if (scene.name == playScene)
+            if (scene.name != "MenuScene")
             {
                 _canvas.enabled = false;
                 background.gameObject.SetActive(false);
                 //StartCoroutine(TransitionBGCoroutine());
+
+                if(toDisable != null)
+                    foreach (GameObject item in toDisable)
+                        item.SetActive(false);
+
+                audioListener.enabled = false;
             }
         }
 
@@ -79,7 +93,8 @@ namespace ui
 
         public void PlayGame()
         {
-            LoadScene(playScene);
+            //LoadScene(playScene);
+            LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
 
         public void ExitGame()
