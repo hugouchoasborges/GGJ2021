@@ -79,6 +79,11 @@ namespace player
 
                 IsFacingRight = _horizontalInput > 0;
             }
+
+            _verticalInput = Input.GetAxis(_verticalInputKey);
+            if (Math.Abs(_verticalInput) > deadZone) {
+                //_rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, _verticalInput * MoveSpeed);
+            }
         }
 
         /// <summary>
