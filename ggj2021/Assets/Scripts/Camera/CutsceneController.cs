@@ -42,6 +42,20 @@ public class CutsceneController : MonoBehaviour
         cam.zoomVelocity = config.zoomVelocity;
     }
 
+
+    // ========================== Default game camera config ============================
+
+    public void SetGameCamera(Action callback = null)
+    {
+        SetCameraConfig(gameConfig);
+    }
+
+
+    // ----------------------------------------------------------------------------------
+    // ========================== Cliff Cutscene ============================
+    // ----------------------------------------------------------------------------------
+
+
     public void SetCliffCutscene(Action callback = null) {
         player.SetMovementLock(true);
         SetCameraConfig(cliffConfig);
@@ -56,9 +70,31 @@ public class CutsceneController : MonoBehaviour
         callback?.Invoke();
     }
 
-    public void SetGameCamera(Action callback = null) {
-        SetCameraConfig(gameConfig);
+
+    // ----------------------------------------------------------------------------------
+    // ========================== Waterfall cutscene ============================
+    // ----------------------------------------------------------------------------------
+
+    public void SetWaterfallCutscene(Action callback = null)
+    {
+        player.SetMovementLock(true);
+        SetCameraConfig(waterfallConfig);
+        StartCoroutine(WaterfallRoutine(callback));
     }
+
+    IEnumerator WaterfallRoutine(Action callback = null)
+    {
+        yield return new WaitForSeconds(6f);
+        SetGameCamera();
+        yield return new WaitForSeconds(3f);
+        player.SetMovementLock(false);
+        callback?.Invoke();
+    }
+
+    // ----------------------------------------------------------------------------------
+    // ========================== End game cutscene ============================
+    // ----------------------------------------------------------------------------------
+
 
     public void SetEndGameCutscene(Action callback = null) {
         player.SetMovementLock(true);

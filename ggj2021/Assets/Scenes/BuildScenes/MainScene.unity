@@ -5310,6 +5310,8 @@ Transform:
   - {fileID: 874762480}
   - {fileID: 215159423}
   - {fileID: 1693893875}
+  - {fileID: 874184879}
+  - {fileID: 649844437}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10983,6 +10985,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08a384397ba77e94d8770894c2932182, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &649844436
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 649844437}
+  m_Layer: 0
+  m_Name: WaterfallCamPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &649844437
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 649844436}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.5, y: -0.8, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 253039380}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &667125937
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11438,10 +11470,10 @@ MonoBehaviour:
     fullLock: 0
     lockY: 0
   waterfallConfig:
-    follow: {fileID: 0}
+    follow: {fileID: 649844437}
     offset: {x: 0, y: 0, z: 0}
-    zoom: 0
-    zoomVelocity: 0
+    zoom: 5
+    zoomVelocity: 0.5
     parallax: 0
     fullLock: 0
     lockY: 0
@@ -11609,6 +11641,76 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 824302492}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &874184878
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 874184879}
+  - component: {fileID: 874184881}
+  - component: {fileID: 874184880}
+  m_Layer: 0
+  m_Name: WaterfallCollider_Right
+  m_TagString: Untagged
+  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &874184879
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 874184878}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.32, y: 1.84, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 253039380}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &874184880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 874184878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eebe3116e8c08be43a0c707340476181, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!61 &874184881
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 874184878}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -1.2451143}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 6.121414}
+  m_EdgeRadius: 0
 --- !u!1 &874762479
 GameObject:
   m_ObjectHideFlags: 0
@@ -13637,22 +13739,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 905203181, guid: a83c6dbe99fabc945924d1a2601a1944, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.011178589
-      objectReference: {fileID: 0}
-    - target: {fileID: 905203181, guid: a83c6dbe99fabc945924d1a2601a1944, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.67841613
-      objectReference: {fileID: 0}
-    - target: {fileID: 905203181, guid: a83c6dbe99fabc945924d1a2601a1944, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.73467785
-      objectReference: {fileID: 0}
-    - target: {fileID: 905203181, guid: a83c6dbe99fabc945924d1a2601a1944, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.36335865
-      objectReference: {fileID: 0}
     - target: {fileID: 1925759591, guid: a83c6dbe99fabc945924d1a2601a1944, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -13665,7 +13751,7 @@ PrefabInstance:
     - target: {fileID: 2378040049050410224, guid: a83c6dbe99fabc945924d1a2601a1944,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 58.03
+      value: 57.5
       objectReference: {fileID: 0}
     - target: {fileID: 2378040049050410224, guid: a83c6dbe99fabc945924d1a2601a1944,
         type: 3}
@@ -13722,26 +13808,6 @@ PrefabInstance:
       propertyPath: _respawnPosition
       value: 
       objectReference: {fileID: 1836909952}
-    - target: {fileID: 6375511560938068008, guid: a83c6dbe99fabc945924d1a2601a1944,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.00574646
-      objectReference: {fileID: 0}
-    - target: {fileID: 6375511560938068008, guid: a83c6dbe99fabc945924d1a2601a1944,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.7033326
-      objectReference: {fileID: 0}
-    - target: {fileID: 6375511560938068008, guid: a83c6dbe99fabc945924d1a2601a1944,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7108609
-      objectReference: {fileID: 0}
-    - target: {fileID: 6375511560938068008, guid: a83c6dbe99fabc945924d1a2601a1944,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.13962002
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a83c6dbe99fabc945924d1a2601a1944, type: 3}
 --- !u!114 &2378040049661327633 stripped

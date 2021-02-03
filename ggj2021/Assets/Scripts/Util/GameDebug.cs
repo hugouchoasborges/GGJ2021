@@ -95,5 +95,7 @@ namespace util
         MovementEvents,
 
         Spine,
+
+        Collider,
     }
 }
