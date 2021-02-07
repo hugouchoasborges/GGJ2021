@@ -189,11 +189,23 @@ namespace player
         {
             var index = (int)color;
             colorPieces[index]++;
+            GameController.Instance.uiController.UpdateColorOutputs(colorPieces, colorPieceTotals);
             if (colorPieces[index] >= colorPieceTotals[index] && !collectedColors.Contains(color))
             {
                 collectedColors.Add(color);
-                GameController.Instance.uiController.UpdateColorOutputs(colorPieces, colorPieceTotals);
                 OnColorAcquire?.Invoke();
+            }
+
+            switch (color)
+            {
+                case InteractableObject.ColorType.PURPLE:
+                    // All purple items should have color on and be interactable
+                    GameController.Instance.ActivatePurple();
+                    break;
+                case InteractableObject.ColorType.RED:
+                    // All red items should have color on and be interactable
+                    GameController.Instance.ActivateRed();
+                    break;
             }
         }
 

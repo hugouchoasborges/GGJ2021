@@ -567,7 +567,7 @@ MonoBehaviour:
     jump: 1
     glide: 1
     walkSpeed: 2
-  colorPieceTotals: 010000000100000001000000
+  colorPieceTotals: 040000000300000001000000
   currentState: 0
   colorPieces: 
   collectedColors: 

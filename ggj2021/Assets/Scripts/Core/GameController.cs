@@ -61,7 +61,22 @@ namespace ui
         }
 
 
-        // ========================== Remove GrayScale ============================
+        // ----------------------------------------------------------------------------------
+        // ========================== Colors ============================
+        // ----------------------------------------------------------------------------------
+
+        private void ActivateColorInteraction(SpriteRenderer[] spriteRendererList)
+        {
+            if (spriteRendererList == null || spriteRendererList.Length == 0)
+                return;
+
+            foreach (var item in spriteRendererList)
+            {
+                item.gameObject.GetComponent<InteractableObject>().enabled = true;
+                item.gameObject.GetComponentInChildren<InteractionLink>().enabled = true;
+                item.gameObject.GetComponentInChildren<BoxCollider2D>().enabled = true;
+            }
+        }
 
         private void RemoveGrayScale(SpriteRenderer[] spriteRendererList)
         {
@@ -71,9 +86,23 @@ namespace ui
             }
         }
 
-        public void RemoveGrayScalePurple() => RemoveGrayScale(_purpleObjects);
-        public void RemoveGrayScaleRed() => RemoveGrayScale(_redObjects);
-        public void RemoveGrayScaleBlue() => RemoveGrayScale(_blueObjects);
+        public void ActivatePurple()
+        {
+            RemoveGrayScale(_purpleObjects);
+            ActivateColorInteraction(_purpleObjects);
+        }
+
+        public void ActivateRed()
+        {
+            RemoveGrayScale(_redObjects);
+            ActivateColorInteraction(_redObjects);
+        }
+
+        public void ActivateBlue()
+        {
+            RemoveGrayScale(_blueObjects);
+            ActivateColorInteraction(_blueObjects);
+        }
 
 
         // ----------------------------------------------------------------------------------
