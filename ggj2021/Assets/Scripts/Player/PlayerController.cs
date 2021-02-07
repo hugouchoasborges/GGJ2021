@@ -150,18 +150,9 @@ namespace player
 
 
         // ----------------------------------------------------------------------------------
-        // ========================== Speech Bubble test methods ============================
+        // ========================== Player states ============================
         // ----------------------------------------------------------------------------------
 
-        public void TEST_ShowSpeechBubble()
-        {
-            speechBubble.Appear();
-        }
-
-        public void TEST_HideSpeechBubble()
-        {
-            speechBubble.Close();
-        }
 
         public void SetState(PlayerState state, bool useTransitions = true)
         {
@@ -176,6 +167,8 @@ namespace player
         }
         public void AdvanceState()
         {
+            GameController.Instance.uiController.UpdateHeartPiecesCollected((int)currentState + 1);
+
             if (currentState == PlayerState.Happy)
             {
                 Debug.Log("YOU BEAT THE GAME!!!");
@@ -202,6 +195,20 @@ namespace player
                 GameController.Instance.uiController.UpdateColorOutputs(colorPieces, colorPieceTotals);
                 OnColorAcquire?.Invoke();
             }
+        }
+
+        // ----------------------------------------------------------------------------------
+        // ========================== Speech Bubble test methods ============================
+        // ----------------------------------------------------------------------------------
+
+        public void TEST_ShowSpeechBubble()
+        {
+            speechBubble.Appear();
+        }
+
+        public void TEST_HideSpeechBubble()
+        {
+            speechBubble.Close();
         }
     }
 }

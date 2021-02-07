@@ -120,7 +120,7 @@ namespace monster
             yield return new WaitForSeconds(1f);
             var pos = transform.position + heartSpawnOffset;
             var piece = Instantiate(heartPiecePrefab, pos, Quaternion.identity).GetComponent<HeartPiece>();
-            yield return piece.Appear(2);
+            yield return piece.Appear(0);
         }
 
     }

@@ -7,8 +7,9 @@ using UnityEngine.UI;
 public class UIController : MonoBehaviour
 {
     [SerializeField] private List<UICollectedColor> colorImages;
+    [SerializeField] private UICollectedHeart heartCollected;
 
-    public void UpdateColorOutputs(int[] collected, int[] totals) 
+    public void UpdateColorOutputs(int[] collected, int[] totals)
     {
         for (int i = 0; i < colorImages.Count; i++)
         {
@@ -19,18 +20,21 @@ public class UIController : MonoBehaviour
     [SerializeField] private Image whiteFader;
     [SerializeField] private float fadeVelocity = 1f;
 
-    public void FadeInAndOutWhite(float fadeVelocity = 1, Action midCallback = null, Action endCallback = null) {
+    public void FadeInAndOutWhite(float fadeVelocity = 1, Action midCallback = null, Action endCallback = null)
+    {
         this.fadeVelocity = fadeVelocity;
         StopAllCoroutines();
         StartCoroutine(FadeInAndOutWhite_Routine(midCallback, endCallback));
     }
 
-    IEnumerator FadeInAndOutWhite_Routine(Action midCallback = null, Action endCallback = null) {
+    IEnumerator FadeInAndOutWhite_Routine(Action midCallback = null, Action endCallback = null)
+    {
         whiteFader.color = new Color(1f, 1f, 1f, 0);
         whiteFader.gameObject.SetActive(true);
 
         float a = 0;
-        while (whiteFader.color.a < 1) {
+        while (whiteFader.color.a < 1)
+        {
             a += fadeVelocity * Time.deltaTime;
             whiteFader.color = new Color(1f, 1f, 1f, a);
             yield return new WaitForSeconds(0.1f);
@@ -40,7 +44,8 @@ public class UIController : MonoBehaviour
         yield return new WaitForSeconds(5f);
 
         a = 1;
-        while (whiteFader.color.a > 0) {
+        while (whiteFader.color.a > 0)
+        {
             a -= fadeVelocity * Time.deltaTime;
             whiteFader.color = new Color(1f, 1f, 1f, a);
             yield return new WaitForSeconds(0.1f);
@@ -50,6 +55,14 @@ public class UIController : MonoBehaviour
 
         yield return new WaitForSeconds(12f);
         endCallback?.Invoke();
+    }
+
+
+    // ========================== Heart Pieces Collected ============================
+
+    public void UpdateHeartPiecesCollected(int totalCollected)
+    {
+        heartCollected.ShowHeartPieces(totalCollected);
     }
 
 }
