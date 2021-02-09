@@ -27,6 +27,11 @@ public class Chamaleon : InteractableCharacter
     [SerializeField] Vector3 heartSpawnOffset;
     [SerializeField] GameObject heartPiecePrefab;
 
+    protected virtual void Start()
+    {
+        SubscribeToEvents();
+    }
+
     IEnumerator JumpToPlayer_Routine(System.Action onEnd)
     {
         var pivot = player.PlayerController.Instance.GetComponentInChildren<spine.SpineController>().attachmentPivots[0];
@@ -52,7 +57,6 @@ public class Chamaleon : InteractableCharacter
         transform.SetParent(pivot);
         if(transform.position.x > startPos.x) transform.localScale = postJumpScale;
 
-        SubscribeToEvents();
         onEnd?.Invoke();
     }
 
