@@ -11,6 +11,11 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
     private static object m_Lock = new object();
     private static T m_Instance;
 
+    protected virtual void Awake()
+    {
+        m_ShuttingDown = false;
+    }
+
     /// <summary>
     /// Access singleton instance through this propriety.
     /// </summary>

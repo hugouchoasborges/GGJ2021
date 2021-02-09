@@ -67,7 +67,14 @@ namespace ui
                     foreach (GameObject item in toDisable)
                         item.SetActive(false);
 
-                audioListener.enabled = false;
+                //audioListener.enabled = false;
+            }
+            else if (scene.name == "MenuScene")
+            {
+                if(SceneManager.sceneCount > 1)
+                    SceneManager.UnloadSceneAsync(scene.buildIndex + 1, UnloadSceneOptions.UnloadAllEmbeddedSceneObjects);
+
+                //audioListener.enabled = true;
             }
         }
 

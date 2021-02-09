@@ -16,8 +16,9 @@ namespace sound
         private AudioEntry[] _audioEntries;
         private Dictionary<string, AudioSource> _audioSources = new Dictionary<string, AudioSource>();
 
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             InitAudioSources();
         }
 

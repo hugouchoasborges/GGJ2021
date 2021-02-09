@@ -11058,6 +11058,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoundController
       objectReference: {fileID: 0}
+    - target: {fileID: 4765049447390353357, guid: d7889c6a9ddf68746abb2adf80b79f36,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4765049447390353392, guid: d7889c6a9ddf68746abb2adf80b79f36,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11655,6 +11660,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Debugger
+      objectReference: {fileID: 0}
+    - target: {fileID: 9086153759963432865, guid: 0c05b14159cf5084b83de7badc6f5c8f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9086153759963432867, guid: 0c05b14159cf5084b83de7badc6f5c8f,
         type: 3}

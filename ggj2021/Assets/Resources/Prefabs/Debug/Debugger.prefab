@@ -43,5 +43,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85448c96c223f67419518309795b9978, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  systemLogEnabled: 1
+  systemLogEnabled: 0
   logTypesEnabled: 0000000001000000020000000300000004000000050000000600000007000000
